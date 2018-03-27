@@ -1,0 +1,22 @@
+{
+  "name": "contact-picker-bff-node",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joeri Sebrechts <joeri.sebrechts@digipolis.be>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "oauth": "^0.9.15",
+    "request": "^2.85.0",
+    "request-promise-any": "^1.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  }
+}
