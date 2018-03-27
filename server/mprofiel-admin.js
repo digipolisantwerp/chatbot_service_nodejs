@@ -17,7 +17,6 @@ const mapItem = (item) => {
 }
 
 const getFirstWord = (str) => (str || '').split(' ')[0];
-const isSingleWord = (str) => str.indexOf(' ') < 0;
 const sortByNameFn = (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase());
 
 /**
