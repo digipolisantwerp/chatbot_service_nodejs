@@ -28,7 +28,7 @@ const sortByNameFn = (a, b) => a.name.toLowerCase().localeCompare(b.name.toLower
  * @return (search) => Promise<Array<ContactItem>>
  */
 const createMprofielAdminService = (config) => {
-    const getContacts = (search, accessToken) => {
+    const getContacts = (accessToken, search) => {
         if (!search) return Promise.resolve([]);
 
         // we must query twice, since the API does not support firstName OR lastName searches

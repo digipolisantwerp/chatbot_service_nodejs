@@ -13,7 +13,9 @@ app.get('/api/antwerpenaars', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     let fs = require("fs");
     let index = 0;
-    let people = JSON.parse(fs.readFileSync("./server/assets/antwerpenaars.json")).map((str) => {
+    let people = JSON.parse(
+        fs.readFileSync("./server/assets/antwerpenaars.json").toString()
+    ).map((str) => {
         return { id: index++, name: str };
     });
     let result = people.filter((item) => {
