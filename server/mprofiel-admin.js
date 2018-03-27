@@ -3,7 +3,7 @@
 const rp = require('request-promise-any')
 const authenticatedOAuth2 = require('./auth');
 
-const mapItem = (item) => {
+const mapResultItem = (item) => {
     return { 
         id: item.id,
         name: item.firstName + ' ' + item.lastName,
@@ -15,6 +15,8 @@ const mapItem = (item) => {
         avatarUrl: item.avatarUrl
     };
 }
+const mapResult = (result) => 
+    result.data.map(mapResultItem).sort(sortByNameFn);
 
 const getFirstWord = (str) => (str || '').split(' ')[0];
 const sortByNameFn = (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase());
@@ -29,8 +31,6 @@ const createMprofielAdminService = (config) => {
     const getContacts = (search, accessToken) => {
         if (!search) return Promise.resolve([]);
 
-        const mapResult = (result) => 
-            result.data.map(mapItem).sort(sortByNameFn);
         // we must query twice, since the API does not support firstName OR lastName searches
         const searchFirstName = 
             rp.get(config.serviceUrl, {
