@@ -10,8 +10,8 @@ const OAuth2 = require('oauth').OAuth2;
  */
 const createAccessTokenFn = () => {
     let accessToken;
-    return (oauth2) => {
-        if (accessToken) {
+    return (oauth2, force) => {
+        if (accessToken && !force) {
             return Promise.resolve(accessToken);
         } else {
             return new Promise((resolve, reject) => {
@@ -59,7 +59,7 @@ const authenticatedOAuth2 = (config, request) => {
             .then((token) => request(token, ...args))
             .catch((rejection) => {
                 if (rejection && rejection.statusCode === 401) {
-                    return getAccessToken(oauth2).then(
+                    return getAccessToken(oauth2, true).then(
                         (token) => request(token, ...args));
                 } else {
                     return Promise.reject(rejection);
