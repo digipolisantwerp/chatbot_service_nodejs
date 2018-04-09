@@ -2,9 +2,9 @@
   "name": "contact-picker-bff-node",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "start": "nodemon ./server",
+    "start": "nodemon ./demo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joeri Sebrechts <joeri.sebrechts@digipolis.be>",

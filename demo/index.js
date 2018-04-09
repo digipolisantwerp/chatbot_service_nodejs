@@ -5,7 +5,12 @@ require('dotenv').config();
 
 const app = express()
 
-const createMprofielAdminService = require('./mprofiel-admin');
+const lib = require('../lib');
+
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', "*");
+    next();
+});
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
@@ -14,7 +19,7 @@ app.get('/api/antwerpenaars', (req, res) => {
     let fs = require("fs");
     let index = 0;
     let people = JSON.parse(
-        fs.readFileSync("./server/assets/antwerpenaars.json").toString()
+        fs.readFileSync("./demo/assets/antwerpenaars.json").toString()
     ).map((str) => {
         return { id: index++, name: str };
     });
@@ -28,21 +33,14 @@ app.get('/api/antwerpenaars', (req, res) => {
     res.send(JSON.stringify(result));
 });
 
-const doGetContacts = createMprofielAdminService({
+const controller = lib.mprofielAdmin.createController({
     clientId: process.env.OAUTH_CLIENT_ID,
     clientSecret: process.env.OAUTH_CLIENT_SECRET,
     oauthUrl: process.env.MPROFIEL_ADMIN_OAUTH_URL,
     serviceUrl: process.env.MPROFIEL_ADMIN_API_URL
 });
 
-app.get('/api/medewerkers', (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    doGetContacts(req.query.search).then((result) => {
-        res.send(JSON.stringify(result));
-    }).catch((rejection) => {
-        res.status(500).send(JSON.stringify(rejection));
-    });
-});
+app.get('/api/medewerkers', controller);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => 
