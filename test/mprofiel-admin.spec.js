@@ -21,10 +21,10 @@ describe('mprofielAdmin', () => {
     describe('createService', () => {
 
         it('should attempt to authenticate first', (done) => {
-            const api = proxyquire('../lib/mprofiel-admin', { 
-                './auth': (config, request) => () => { done(); }
+            const createService = proxyquire('../lib/mprofiel-admin/service', { 
+                '../auth': (config, request) => () => { done(); }
             });
-            const fn = api.createService({});
+            const fn = createService({});
             fn();
         });
 
@@ -32,8 +32,8 @@ describe('mprofielAdmin', () => {
             let byFirstName = false;
             let byLastName = true;
             const query = 'foo';
-            const api = proxyquire('../lib/mprofiel-admin', {
-                './auth': oauthPassThrough,
+            const createService = proxyquire('../lib/mprofiel-admin/service', {
+                '../auth': oauthPassThrough,
                 'request-promise-any': {
                     get: (url, config) => {
                         if (config.qs.firstName) {
@@ -48,7 +48,7 @@ describe('mprofielAdmin', () => {
                     }
                 }
             });
-            const fn = api.createService({});
+            const fn = createService({});
             fn(query).then((result) => {
                 expect(result).not.toBeNull();
                 expect(result.length).toEqual(2);
@@ -66,13 +66,13 @@ describe('mprofielAdmin', () => {
 
     describe('createController', () => {
         it('should call the service and output json', (done) => {
-            const api = proxyquire('../lib/mprofiel-admin', {
-                './auth': () => (search) => {
+            const createController = proxyquire('../lib/mprofiel-admin/controller', {
+                './service': () => (search) => {
                     expect(search).toEqual('test');
                     return Promise.resolve(dummyResult);
                 }
             });
-            const controller = api.createController({});
+            const controller = createController({});
             controller({ query: { search: 'test' } }, { json: (result) => { 
                 expect(result).toEqual(dummyResult);
                 done(); 
