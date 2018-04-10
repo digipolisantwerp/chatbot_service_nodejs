@@ -5,6 +5,8 @@
 /dist-server
 /tmp
 /out-tsc
+/coverage
+/test/coverage
 
 # dependencies
 /node_modules

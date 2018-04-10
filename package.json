@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "nodemon ./demo",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/istanbul cover ./node_modules/jasmine-node/bin/jasmine-node test"
   },
   "author": "Joeri Sebrechts <joeri.sebrechts@digipolis.be>",
   "license": "MIT",
@@ -17,6 +17,9 @@
     "request-promise-any": "^1.0.5"
   },
   "devDependencies": {
-    "nodemon": "^1.17.2"
+    "istanbul": "^0.4.5",
+    "jasmine-node": "^1.14.5",
+    "nodemon": "^1.17.2",
+    "proxyquire": "^2.0.1"
   }
 }
