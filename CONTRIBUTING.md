@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-First off, thanks for taking the time to contribute! :+1: 
+First off, thanks for taking the time to contribute! :+1:
 
 ## I just have a question
 
@@ -48,9 +48,10 @@ Please send us your changes as a GitHub pull request.
 
 In order for us to be able to accept your pull request without remarks, please do these things:
 
-- Follow the guidelines above.
+- Follow the above style guides.
+- Please update the readme documentation and example app along with the code.
+- Make sure all the tests pass.
 - Provide a clear description on the pull request of what was changed
 - Link to a relevant issue. Feel free to create one if none exists.
-- Make sure all the tests pass.
 
 If possible, do provide meaningful and clean commit messages. A [good commit message](https://chris.beams.io/posts/git-commit/) completes the sentence "When committed this will …"
