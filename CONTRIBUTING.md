@@ -26,21 +26,21 @@ Before contributing code, you should be aware of the following:
 ### Code layout
 
 - `./lib` contains the service library
-- `./demo` contains the demo app
+- `./example` contains the demo app
 
 ### Building and Testing
 
-`$ npm install`
+`> npm install`
 
 Commands:
 
 - Start the demo app
 
-  `$ npm start`
+  `> npm start`
 
 - Run the tests (with coverage)
 
-  `$ npm test`
+  `> npm test`
 
 ### Submitting Changes
 

@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "start": "nodemon ./demo",
+    "start": "nodemon ./example",
     "test": "node_modules/.bin/istanbul cover ./node_modules/jasmine-node/bin/jasmine-node test"
   },
   "author": "Joeri Sebrechts <joeri.sebrechts@digipolis.be>",

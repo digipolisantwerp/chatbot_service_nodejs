@@ -19,7 +19,7 @@ app.get('/api/antwerpenaars', (req, res) => {
     let fs = require("fs");
     let index = 0;
     let people = JSON.parse(
-        fs.readFileSync("./demo/assets/antwerpenaars.json").toString()
+        fs.readFileSync("./example/assets/antwerpenaars.json").toString()
     ).map((str) => {
         return { id: index++, name: str };
     });
