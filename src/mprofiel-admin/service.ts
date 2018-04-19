@@ -1,9 +1,8 @@
-'use strict';
+import rp = require('request-promise')
+import { ServiceConfig, ContactItem, MprofielAdminResult, MprofielAdminResultItem } from './types';
+import { authenticatedOAuth2 } from '../auth';
 
-let rp = require('request-promise-any')
-let authenticatedOAuth2 = require('../auth');
-
-const mapResultItem = (item) => {
+const mapResultItem = (item: MprofielAdminResultItem) => {
     return { 
         id: item.id,
         name: item.firstName + ' ' + item.lastName,
@@ -15,20 +14,19 @@ const mapResultItem = (item) => {
         avatarUrl: item.avatarUrl
     };
 }
-const mapResult = (result) => 
+const mapResult = (result: MprofielAdminResult) => 
     result.data.map(mapResultItem).sort(sortByNameFn);
 
-const getFirstWord = (str) => (str || '').split(' ')[0];
-const sortByNameFn = (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+const getFirstWord = (str: string) => (str || '').split(' ')[0];
+const sortByNameFn = (a: ContactItem, b: ContactItem) => 
+    a.name.toLowerCase().localeCompare(b.name.toLowerCase());
 
 /**
  * Create a function that calls the mprofiel-admin service and finds contacts
  * matching a search string
- * @param {*} config 
- * @return (search) => Promise<Array<ContactItem>>
  */
-const createService = (config) => {
-    const getContacts = (accessToken, search) => {
+export = function createService(config: ServiceConfig): (search: string) => Promise<ContactItem[]> {
+    const getContacts = (accessToken: string, search: string) => {
         if (!search) return Promise.resolve([]);
 
         // we must query twice, since the API does not support firstName OR lastName searches
@@ -64,13 +62,13 @@ const createService = (config) => {
                 return byFirstName;
             }
             // combine the results, but filter for uniques
-            const byFirstNameIds = {};
-            byFirstName.forEach((item) => byFirstNameIds[item.id] = true);
-            const byLastNameUnique = byLastName.filter((item) => !byFirstNameIds[item.id]);
+            const byFirstNameIds: any = {};
+            byFirstName.forEach(
+                (item: ContactItem) => byFirstNameIds[item.id] = true);
+            const byLastNameUnique = 
+                byLastName.filter((item: ContactItem) => !byFirstNameIds[item.id]);
             return byFirstName.concat(byLastNameUnique).sort(sortByNameFn);
         });
     }
     return authenticatedOAuth2(config, getContacts);
 }
-
-module.exports = createService;
