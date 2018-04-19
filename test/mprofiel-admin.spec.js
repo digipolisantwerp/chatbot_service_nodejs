@@ -63,6 +63,18 @@ describe('mprofielAdmin', () => {
                 done();
             });
         });
+
+        it('should return an empty array when not given a search query', (done) => {
+            const createService = proxyquire('../dist/mprofiel-admin/service', { 
+                '../auth': { authenticatedOAuth2: oauthPassThrough }
+            });
+            const fn = createService({});
+            fn().then((result) => {
+                expect(result).not.toBeNull();
+                expect(result.length).toEqual(0);
+                done();
+            });
+        });
         
     });
 
