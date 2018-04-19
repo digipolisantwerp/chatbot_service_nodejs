@@ -13,6 +13,10 @@
     "test": "npm run build && npm run test:istanbul",
     "test:istanbul": "node_modules/.bin/istanbul cover ./node_modules/jasmine-node/bin/jasmine-node test"
   },
+  "repository": { 
+    "type" : "git", 
+    "url" : "https://github.com/digipolisantwerp/contact-picker_service_nodejs.git"
+  },
   "author": {
     "name": "Joeri Sebrechts",
     "email": "joeri.sebrechts@digipolis.be"
