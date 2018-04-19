@@ -25,8 +25,9 @@ Before contributing code, you should be aware of the following:
 
 ### Code layout
 
-- `./lib` contains the service library
-- `./example` contains the demo app
+- `./src` contains the service library (typescript)
+- `./example` contains the demo app (typescript)
+- `./test`contains the jasmine unit tests (javascript)
 
 ### Building and Testing
 
