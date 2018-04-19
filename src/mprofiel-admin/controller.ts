@@ -13,4 +13,4 @@ const createController = (config: ServiceConfig) => {
     }
 }
 
-module.exports = createController;
+export = createController;
