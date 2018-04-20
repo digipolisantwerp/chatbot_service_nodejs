@@ -56,3 +56,17 @@ In order for us to be able to accept your pull request without remarks, please d
 - Link to a relevant issue. Feel free to create one if none exists.
 
 If possible, do provide meaningful and clean commit messages. A [good commit message](https://chris.beams.io/posts/git-commit/) completes the sentence "When committed this will …"
+
+### Publishing
+
+Follow these steps to publish a new version of the package.
+You must have a Digipolis account with access to Nexus.
+
+1. Increment the version in package.json
+2. Log in to the the private registry
+
+    `> npm login --registry=https://nexusrepo.antwerpen.be/repository/npm-private/`
+
+3. Publish the package
+
+    `> npm publish --registry=https://nexusrepo.antwerpen.be/repository/npm-private/`

@@ -45,5 +45,8 @@
     "ts-node": "^6.0.0",
     "tslint": "^5.9.1",
     "typescript": "^2.8.1"
+  },
+  "publishConfig": {
+    "registry": "https://nexusrepo.antwerpen.be/repository/npm-private/"
   }
 }
