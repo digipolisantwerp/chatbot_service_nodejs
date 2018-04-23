@@ -1,6 +1,6 @@
 {
   "name": "@acpaas-ui-widgets/nodejs-contact-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Contact Picker Smart Widget BFF package (Node)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

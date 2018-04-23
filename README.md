@@ -2,32 +2,43 @@
 
 This is a Node.js backend service library to create a BFF service for the Contact Picker Smart Widget. The widget provides a picker field to choose a person from a list of contacts. This service is matched by a [corresponding UI](https://github.com/digipolisantwerp/contact-picker_widget_angular).
 
-There is a demo service, see below for instructions on running it.
+There is a **demo service**, see below for instructions on running it.
 
 ## How to use
 
 ### Installing
 
+Create a file .npmrc in your project root with:
+
 ```sh
-> npm install @acpaas-ui/contact-picker-service-nodejs
+registry=https://npmrepo.antwerpen.be/repository/npm-all
+```
+
+Then install:
+
+```sh
+> npm install @acpaas-ui-widgets/nodejs-contact-picker
 ```
 
 ### Using
 
-Express example (assuming a .env file is created, see below):
+Express example:
 
 ```js
+const express = require('express');
 const app = express()
-const pickerHelper = require('@acpaas-ui/contact-picker-service-nodejs');
+const pickerHelper = require('@acpaas-ui-widgets/nodejs-contact-picker');
 const controller = pickerHelper.mprofielAdmin.createController({
-    clientId: process.env.OAUTH_CLIENT_ID,
-    clientSecret: process.env.OAUTH_CLIENT_SECRET,
-    oauthUrl: process.env.MPROFIEL_ADMIN_OAUTH_URL,
-    serviceUrl: process.env.MPROFIEL_ADMIN_API_URL
+    clientId: "<oauth client id>",
+    clientSecret: "<oauth client secret>",
+    oauthUrl: "https://api-gw-o.antwerpen.be/astad/mprofieladmin/v1/oauth2/token",
+    serviceUrl: "https://api-gw-o.antwerpen.be/astad/mprofieladmin/v1/api/mprofiel"
 });
 app.get('/api/medewerkers', controller);
 app.listen(3000);
 ```
+
+You can obtain the OAuth credentials by taking a contract on the API in the [API store](https://api-store-o.antwerpen.be).
 
 The library provides the following interface:
 
