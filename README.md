@@ -14,9 +14,10 @@ Create a file .npmrc in your project root with:
 registry=https://npmrepo.antwerpen.be/repository/npm-all
 ```
 
-Then install:
+Then install (you will need a Digipolis network account):
 
 ```sh
+> npm login --registry=https://npmrepo.antwerpen.be/repository/npm-private/
 > npm install @acpaas-ui-widgets/nodejs-contact-picker
 ```
 
