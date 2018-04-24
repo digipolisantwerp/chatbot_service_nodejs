@@ -8,16 +8,11 @@ There is a **demo service**, see below for instructions on running it.
 
 ### Installing
 
-Create a file .npmrc in your project root with:
+Copy the .npmrc file from this repo to your application's folder.
+
+Then install (you will need to be on the digipolis network):
 
 ```sh
-registry=https://npmrepo.antwerpen.be/repository/npm-all
-```
-
-Then install (you will need a Digipolis network account):
-
-```sh
-> npm login --registry=https://npmrepo.antwerpen.be/repository/npm-private/
 > npm install @acpaas-ui-widgets/nodejs-contact-picker
 ```
 
