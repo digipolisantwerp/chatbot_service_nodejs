@@ -1,9 +1,9 @@
 {
     "swagger": "2.0",
     "info": {
-      "description": "This is an example BFF service for the Contact Picker Smart Widget",
+      "description": "This is an example BFF service for the Chatbot Smart Widget",
       "version": "1.0.0",
-      "title": "Contact Picker BFF",
+      "title": "Chatbot BFF",
       "contact": {
         "email": "joeri.sebrechts@digipolis.be"
       },

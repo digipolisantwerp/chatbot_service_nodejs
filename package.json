@@ -1,7 +1,7 @@
 {
-  "name": "@acpaas-ui-widgets/nodejs-contact-picker",
-  "version": "1.0.1",
-  "description": "Contact Picker Smart Widget BFF package (Node)",
+  "name": "@acpaas-ui-widgets/nodejs-chatbot",
+  "version": "0.0.1",
+  "description": "Chatbot Smart Widget BFF package (Node)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -15,11 +15,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/digipolisantwerp/contact-picker_service_nodejs.git"
+    "url": "git+https://github.com/trianglejuice/chatbot_service_angular.git"
   },
   "author": {
-    "name": "Joeri Sebrechts",
-    "email": "joeri.sebrechts@digipolis.be"
+    "name": "Jasper Van Proeyen",
+    "email": "jasper.vanproeyen@digipolis.be"
   },
   "license": "MIT",
   "dependencies": {

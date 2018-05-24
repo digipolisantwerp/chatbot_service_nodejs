@@ -1,6 +1,6 @@
-# Contact Picker Smart Widget BFF (Node)
+# Chatbot Smart Widget BFF (Node)
 
-This is a Node.js backend service library to create a BFF service for the Contact Picker Smart Widget. The widget provides a picker field to choose a person from a list of contacts. This service is matched by a [corresponding UI](https://github.com/digipolisantwerp/contact-picker_widget_angular).
+This is a Node.js backend service library to create a BFF service for the Chatbot Smart Widget. The widget provides a picker field to choose a person from a list of contacts. This service is matched by a [corresponding UI](https://github.com/digipolisantwerp/contact-picker_widget_angular).
 
 There is a **demo service**, see below for instructions on running it.
 
