@@ -13,6 +13,10 @@ export interface ContactItem {
     email?: string,
     domain?: string,
     avatarUrl?: string
+    emailWork?: string
+    message?: string
+    type?: string
+    ContactItem?: string
 }
 
 export interface MprofielAdminResult {
@@ -55,11 +59,8 @@ export interface ChatbotMessageButton {
  */
 export interface ChatbotMessage {
     message: string;
+    send: boolean;
+    session_id: string;
     type: string;
-    elements?: ChatbotMessageButton[];
-    image?: string;
-    session_id?: string;
-    url?: string;
-    send?: boolean;
-    hide?: boolean;
+    id: string;
 }
