@@ -1,8 +1,9 @@
 export interface ServiceConfig {
   serviceUrl: string;
   chatbot: string;
-  token: string;
   chatbotenv: string;
+  username: string;
+  password: string;
 }
 /**
  * interface ChatbotMessageButton
@@ -10,6 +11,12 @@ export interface ServiceConfig {
  * replyText: message text that is sent to the chatbot engine
  * text: text that is shown to the user as possible reply
  */
+export interface ChatbotAccess {
+  id: string;
+  ttl: string;
+  created: string;
+  userId: string;
+}
 export interface ChatbotMessageButton {
   replyText: string;
   text: string;
