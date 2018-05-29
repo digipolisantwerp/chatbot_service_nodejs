@@ -1,37 +1,40 @@
 import { OAuthConfig } from '../auth';
 
 export interface ServiceConfig extends OAuthConfig {
-    serviceUrl: string
+  serviceUrl: string;
+  chatbot: string;
+  token: string;
+  chatbotenv: string;
 }
 
 export interface ContactItem {
-    id: string,
-    name: string,
-    firstName?: string,
-    lastName?: string,
-    userName?: string,
-    email?: string,
-    domain?: string,
-    avatarUrl?: string
-    emailWork?: string
-    message?: string
-    type?: string
-    ContactItem?: string
+  id: string;
+  name: string;
+  firstName?: string;
+  lastName?: string;
+  userName?: string;
+  email?: string;
+  domain?: string;
+  avatarUrl?: string;
+  emailWork?: string;
+  message?: string;
+  type?: string;
+  ContactItem?: string;
 }
 
 export interface MprofielAdminResult {
-    success: boolean,
-    data: Array<MprofielAdminResultItem>
+  success: boolean;
+  data: Array<MprofielAdminResultItem>;
 }
 
 export interface MprofielAdminResultItem {
-    id: string,
-    firstName: string,
-    lastName: string,
-    userName: string,
-    domain: string,
-    avatarUrl: string,
-    emailWork: string
+  id: string;
+  firstName: string;
+  lastName: string;
+  userName: string;
+  domain: string;
+  avatarUrl: string;
+  emailWork: string;
 }
 
 /**
@@ -41,8 +44,8 @@ export interface MprofielAdminResultItem {
  * text: text that is shown to the user as possible reply
  */
 export interface ChatbotMessageButton {
-    replyText: string;
-    text: string;
+  replyText: string;
+  text: string;
 }
 
 /**
@@ -58,9 +61,9 @@ export interface ChatbotMessageButton {
  * hide: whether the message should be hidden in the conversation, e.g. when a button was clicked
  */
 export interface ChatbotMessage {
-    message: string;
-    send: boolean;
-    session_id: string;
-    type: string;
-    id: string;
+  message: string;
+  send: boolean;
+  session_id: string;
+  type: string;
+  id: string;
 }
