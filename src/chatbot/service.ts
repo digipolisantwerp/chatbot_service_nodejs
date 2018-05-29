@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { ServiceConfig, ChatbotMessage } from './types';
-import { authenticatedOAuth2 } from '../auth';
 
 export =  (config: ServiceConfig) => async (chatmessage: ChatbotMessage) => {
   return new Promise<object>(async(resolve, reject) => {
