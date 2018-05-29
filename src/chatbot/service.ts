@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ServiceConfig, ContactItem, MprofielAdminResult, ChatbotMessage } from './types';
+import { ServiceConfig, ChatbotMessage } from './types';
 import { authenticatedOAuth2 } from '../auth';
 
 export =  (config: ServiceConfig) => async (chatmessage: ChatbotMessage) => {
