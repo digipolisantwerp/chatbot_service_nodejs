@@ -1,19 +1,19 @@
 require('dotenv-safe').config();
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const lib = require('../src');
 import express = require('express');
 import { Request, Response, NextFunction } from 'express';
-const cors = require('cors');
-const bodyParser = require('body-parser');
 
 const app = express();
-const lib = require('../src');
-app.use(cors());
 app.use(bodyParser.json());
-
+app.use(cors());
 app.post('/api/chatbot', lib.chatbot.createController({
   chatbot: process.env.CHATBOT,
   chatbotenv: process.env.CHATBOT_ENV,
   serviceUrl: process.env.SERVICEURL,
-  token: process.env.TOKEN,
+  username: process.env.CHATBOT_USER,
+  password: process.env.CHATBOT_PASS,
 }));
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
