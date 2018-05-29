@@ -4,7 +4,7 @@ import { ChatbotAccess } from './../types';
 
 export default (username: string, password: string, url: string) => {
   return new Promise<ChatbotAccess>(async(resolve, reject) => {
-    return axios({
+    axios({
       url: `${url}/token`,
       method: 'post',
       data: {
@@ -15,6 +15,7 @@ export default (username: string, password: string, url: string) => {
       resolve(response.data);
     }).catch((e) => {
       if (e.response) {
+        // Also return the 401
         const errorObject = {
           ...e.response.data.error,
           message: 'ChatBotError Auth',
