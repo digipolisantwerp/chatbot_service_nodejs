@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { ServiceConfig, ChatbotMessage } from './types';
 import ChatMessager from './helpers/Chatmessager';
 export =  (config: ServiceConfig) => async (chatmessage: ChatbotMessage) => {
