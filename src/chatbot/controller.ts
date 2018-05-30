@@ -18,7 +18,6 @@ const createController = (config: ServiceConfig) =>
          const returnMessage = await service(req.body);
          res.json(returnMessage);
        } catch (e) {
-         console.log('Something went wrong in the serviceController', e);
          next(e);
        }
      };

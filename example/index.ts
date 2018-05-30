@@ -20,8 +20,9 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   if (err.name === 'ValidationError') {
     return res.status(400).send(err);
   }
-  if (err.name === 'ChatBotError' && err.status) {
-    return res.status(err.status).send(err);
+  if (err.name === 'ChatBotError') {
+    const status = err.status || 500;
+    return res.status(status).send(err);
   }
   return res.status(500).send(err);
 });
