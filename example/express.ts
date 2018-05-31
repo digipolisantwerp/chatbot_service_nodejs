@@ -15,6 +15,7 @@ app.post('/api/chatbot', lib.chatbot.createController({
   serviceUrl: process.env.SERVICEURL,
   username: process.env.CHATBOT_USER,
   password: process.env.CHATBOT_PASS,
+  apikey: process.env.APIKEY,
 }));
 
 app.post('/api/chatbotsecure', authtenticate, lib.chatbot.createController({
@@ -23,6 +24,7 @@ app.post('/api/chatbotsecure', authtenticate, lib.chatbot.createController({
   serviceUrl: process.env.SERVICEURL,
   username: process.env.CHATBOT_USER,
   password: process.env.CHATBOT_PASS,
+  apikey: process.env.APIKEY,
 }));
 app.use(errorHandler);
 

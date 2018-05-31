@@ -6,9 +6,9 @@ export const environment = {
   CHATBOT_USER: 'cahtbotuser',
   CHATBOT_PASS: 'chatbotpass',
   TOKEN: 'testtoken',
+  APIKEY: 'testkey',
 };
 
 Object.keys(environment).forEach((key) => {
   process.env[key] = environment[key];
 });
-
