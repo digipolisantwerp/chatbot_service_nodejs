@@ -12,4 +12,3 @@ export const environment = {
 Object.keys(environment).forEach((key) => {
   process.env[key] = environment[key];
 });
-

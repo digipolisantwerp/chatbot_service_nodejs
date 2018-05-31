@@ -2,7 +2,8 @@ import * as app from './../../example/express';
 import * as request from 'supertest';
 import axios from 'axios';
 
-const mockedMessage = { exited_engine:1527664351.212784,
+const mockedMessage = {
+  exited_engine:1527664351.212784,
   entered_engine:1527664351.207196,
   session:'c482f7a2-fdb7-a1d4-e319-edc6d46a00d',
   processed:'5.59 milliseconds',
@@ -20,10 +21,10 @@ const mockedMessage = { exited_engine:1527664351.212784,
     estimates:[
       {
         probability:1,
-        label:'hello word',
+        label:'hello world',
       },
     ],
-    label:'hello word',
+    label:'hello world',
   },
   time:21,
   reentered_api:1527664351214,
@@ -101,7 +102,7 @@ describe('POST /api/chatbot`', () => {
       expect(axios).toBeCalledWith({
         data: {
           password: 'chatbotpass',
-          username: 'cahtbotuser',
+          username: 'chatbotuser',
         },
         headers: { apikey: 'testkey' },
         method: 'post',
