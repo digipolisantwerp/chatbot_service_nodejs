@@ -2,11 +2,12 @@ import axios from 'axios';
 
 import { ChatbotAccess } from './../types';
 
-export default (username: string, password: string, url: string) => {
+export default (username: string, password: string, url: string, apikey: string) => {
   return new Promise<ChatbotAccess>(async(resolve, reject) => {
     axios({
-      url: `${url}/token`,
+      url: `${url}/chats/token`,
       method: 'post',
+      headers: { apikey },
       data: {
         password,
         username,

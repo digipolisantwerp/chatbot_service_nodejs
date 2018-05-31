@@ -10,7 +10,7 @@ export default class ChatMessager{
       return ChatMessager.instance;
     }
     this.config = config;
-    this.authentication = getToken(config.username, config.password, config.serviceUrl);
+    this.authentication = getToken(config.username, config.password, config.serviceUrl, config.apikey);
     ChatMessager.instance = this;
   }
   private async getAccessToken() {
@@ -22,8 +22,9 @@ export default class ChatMessager{
       try {
         const accessToken = await this.getAccessToken();
         axios({
-          url: `${this.config.serviceUrl}/${this.config.chatbot}/message`,
+          url: `${this.config.serviceUrl}/chats/${this.config.chatbot}/message`,
           method: 'post',
+          headers: { apikey: this.config.apikey },
           data: {
             session,
             message,

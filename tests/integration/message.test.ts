@@ -103,8 +103,9 @@ describe('POST /api/chatbot`', () => {
           password: 'chatbotpass',
           username: 'cahtbotuser',
         },
+        headers: { apikey: 'testkey' },
         method: 'post',
-        url: 'https://apistore.be/token',
+        url: 'https://apistore.be/chats/token',
       });
       expect(axios).toBeCalledWith({
         data: {
@@ -112,11 +113,12 @@ describe('POST /api/chatbot`', () => {
           message: 'hello world',
           session: 'sessionid',
         },
+        headers: { apikey: 'testkey' },
         method: 'post',
         params: {
           access_token: 'fake!',
         },
-        url: 'https://apistore.be/123456/message',
+        url: 'https://apistore.be/chats/123456/message',
       });
 
       expect(status).toEqual(200);
@@ -141,11 +143,12 @@ describe('POST /api/chatbot`', () => {
           message: 'hello world2',
           session: 'sessionid',
         },
+        headers: { apikey: 'testkey' },
         method: 'post',
         params: {
           access_token: 'fake!',
         },
-        url: 'https://apistore.be/123456/message',
+        url: 'https://apistore.be/chats/123456/message',
       });
 
       expect(status).toEqual(200);
