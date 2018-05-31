@@ -2,7 +2,7 @@ import * as Joi from 'joi';
 import * as validation from './validation';
 import createService = require('./service');
 import { Request, Response, NextFunction } from 'express';
-import { ServiceConfig, ChatbotMessage } from './types';
+import { ServiceConfig } from './types';
 
 const createController = (config: ServiceConfig) =>
      async(req: Request, res: Response, next: NextFunction) => {
@@ -18,7 +18,6 @@ const createController = (config: ServiceConfig) =>
          const returnMessage = await service(req.body);
          res.json(returnMessage);
        } catch (e) {
-         console.log('Something went wrong in the serviceController', e);
          next(e);
        }
      };

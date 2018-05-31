@@ -15,10 +15,10 @@ export default (username: string, password: string, url: string) => {
       resolve(response.data);
     }).catch((e) => {
       if (e.response) {
-        // Also return the 401
         const errorObject = {
           ...e.response.data.error,
-          message: 'ChatBotError Auth',
+          message: e.message,
+          name: 'ChatBotError',
         };
         reject(errorObject);
       }

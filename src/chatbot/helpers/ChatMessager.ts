@@ -38,15 +38,19 @@ export default class ChatMessager{
           if (e.response) {
             const errorObject = {
               ...e.response.data.error,
-              message: 'ChatBotError',
+              name: 'ChatBotError',
             };
             reject(errorObject);
           }
-          reject(e.response);
-          // reject(e);
+          reject(e);
         });
       } catch (e) {
-        reject(e.message);
+        const errorObject = {
+          name: 'ChatBotError',
+          message: e.message,
+          status: e.status,
+        };
+        reject(errorObject);
       }
     });
   }
