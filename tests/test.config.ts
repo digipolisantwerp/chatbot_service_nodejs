@@ -5,6 +5,7 @@ export const environment = {
   CHATBOT_ENV: 'production',
   CHATBOT_USER: 'cahtbotuser',
   CHATBOT_PASS: 'chatbotpass',
+  TOKEN: 'testtoken',
 };
 
 Object.keys(environment).forEach((key) => {
