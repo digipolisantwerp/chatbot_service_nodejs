@@ -1,6 +1,6 @@
 # Chatbot Smart Widget BFF (Node)
 
-This is a Node.js backend service library to create a BFF service for the Chatbot Smart Widget. The widget provides a picker field to choose a person from a list of contacts. This service is matched by a [corresponding UI](https://github.com/digipolisantwerp/contact-picker_widget_angular).
+This is a Node.js backend service library to create a BFF service for the Chatbot Smart Widget. The widget provides a chat interface.
 
 There is a **demo service**, see below for instructions on running it.
 
@@ -13,7 +13,7 @@ Copy the .npmrc file from this repo to your application's folder.
 Then install (you will need to be on the digipolis network):
 
 ```sh
-> npm install @acpaas-ui-widgets/nodejs-contact-picker
+> npm install @acpaas-ui-widgets/nodejs-chatbot-service
 ```
 
 ### Using
@@ -23,35 +23,32 @@ Express example:
 ```js
 const express = require('express');
 const app = express()
-const pickerHelper = require('@acpaas-ui-widgets/nodejs-contact-picker');
-const controller = pickerHelper.mprofielAdmin.createController({
-    clientId: "<oauth client id>",
-    clientSecret: "<oauth client secret>",
-    oauthUrl: "https://api-gw-o.antwerpen.be/astad/mprofieladmin/v1/oauth2/token",
-    serviceUrl: "https://api-gw-o.antwerpen.be/astad/mprofieladmin/v1/api/mprofiel"
+const chatbotService = require('@acpaas-ui-widgets/nodejs-chatbot-service');
+const controller = chatbotService.createController({
+  chatbot: <CHATBOT> the Id of the chatbot you want to address,
+  chatbotenv: <CHATBOT_ENV> test | production,
+  serviceUrl: <SERVICEURL> endpoint (api-store),
+  username: <CHATBOT_USER> user to generate token,
+  password: <CHATBOT_PASS> password to generate token,
+  apikey: <APIKEY> your api-store api key,
 });
-app.get('/api/medewerkers', controller);
+app.get('/api/chatbot', controller);
 app.listen(3000);
 ```
-
-You can obtain the OAuth credentials by taking a contract on the API in the [API store](https://api-store-o.antwerpen.be).
-
-The library provides the following interface:
-
-- mprofielAdmin
-  - *createController(config)*: create an express controller that handles the connection to the mprofiel-admin API
-  - *createService(config)*: create a function that accepts a query and returns a promise of the results of the mprofiel-admin API for that query. The createController routine builds on top of this.
 
 ## Run the demo app
 
 Create a .env file containing:
 
 ```sh
-PORT=3000
-OAUTH_CLIENT_ID=<client id>
-OAUTH_CLIENT_SECRET=<client secret>
-MPROFIEL_ADMIN_OAUTH_URL=https://api-gw-o.antwerpen.be/astad/mprofieladmin/v1/oauth2/token
-MPROFIEL_ADMIN_API_URL=https://api-gw-o.antwerpen.be/astad/mprofieladmin/v1/api/mprofiel
+SERVICEURL=
+CHATBOT=
+CHATBOT_ENV=
+CHATBOT_USER=
+CHATBOT_PASS=
+TOKEN=
+APIKEY=
+PORT=(optional defaults to 3000)
 ```
 
 Obtain the client id and client secret by creating a contract on the mprofiel-admin service on [api-store-o.antwerpen.be](https://api-store-o.antwerpen.be).
@@ -65,17 +62,21 @@ Run the service:
 > npm start
 ```
 
-Test by browsing to [localhost:3000/api/medewerkers?search=aa](http://localhost:3000/api/medewerkers?search=aa).
-
-The UI demo app expects the service to run on port 3000.
-
 ## Service Specification
 
-The service implements the following protocol:
-
-- GET /path/to/endpoint?search=...
-- search = the text that the user typed on which to match
-- result = JSON-encoded array of [ContactItem](src/mprofiel-admin/types.ts) objects
+```sh
+POST: /chats/{botId}/message?access_token={access_token}
+{
+  "message": "Hello World", 
+  "session_id": "<your session id>",
+  "type": "message",
+  "send": "true"
+}
+```
+- **message:** Your message to the bot,
+- **session_id:** The chatsession
+- **type:** message
+- **send:** true
 
 An [example swagger description](swagger-example.json) is included.
 
