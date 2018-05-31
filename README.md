@@ -78,7 +78,7 @@ POST: /chats/{botId}/message?access_token={access_token}
 - **type:** message
 - **send:** true
 
-An [example swagger description](swagger-example.json) is included.
+An [example swagger description](swagger.yml) is included.
 
 ## Contributing
 

@@ -67,6 +67,8 @@
     "setupFiles": [
       "<rootDir>/tests/test.config.ts"
     ],
+    "testPathIgnorePatterns": ["/node_modules/","<rootDir>/tests/__mocks__/*", "tests/test.config.ts"],
+    "roots": [ "<rootDir>", "<rootDir>/tests/" ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "src/app.ts",
