@@ -29,6 +29,28 @@ paths:
           description: "Bad request / Validation Error"
         500:
           description: "Internal error"
+  /api/chatbot/inject:
+   post:
+      tags:
+      - "Message"
+      summary: "Send a Messag and make the backend add usercontext"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/Message"
+      responses:
+        200:
+          description: "responce"
+        400:
+          description: "Bad request / Validation Error"
+        500:
+          description: "Internal error"
   /api/chatbotsecure:
     post:
       tags:

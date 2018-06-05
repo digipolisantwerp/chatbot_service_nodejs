@@ -1,7 +1,6 @@
-import createService = require('./service');
-import createController = require('./controller');
+import { createController, chatService } from './controller';
 
 export {
-    createService,
+    chatService,
     createController,
 };
