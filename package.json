@@ -1,6 +1,6 @@
 {
   "name": "@acpaas-ui-widgets/nodejs-chatbot",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.1",
   "description": "Chatbot Smart Widget BFF package (Node)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -62,13 +62,16 @@
     },
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "tests/test.config"
+      "<rootDir>/tests/__mocks__/*",
+      "tests/test.config.ts"
     ],
     "setupFiles": [
       "<rootDir>/tests/test.config.ts"
     ],
-    "testPathIgnorePatterns": ["/node_modules/","<rootDir>/tests/__mocks__/*", "tests/test.config.ts"],
-    "roots": [ "<rootDir>", "<rootDir>/tests/" ],
+    "roots": [
+      "<rootDir>",
+      "<rootDir>/tests/"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "src/app.ts",
