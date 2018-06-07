@@ -34,6 +34,7 @@ export interface ChatbotMessageButton {
  */
 export interface ChatbotMessage {
   message: string;
+  metadata?: any;
   send?: boolean;
   session_id: string;
   type?: string;

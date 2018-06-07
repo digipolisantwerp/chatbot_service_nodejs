@@ -17,7 +17,7 @@ export default class ChatMessager{
     const { id } = await this.authentication;
     return id;
   }
-  async sendMessage(message: string, session: string) {
+  async sendMessage(message: string, session: string, metadata?: any) {
     return new Promise<object>(async(resolve, reject) => {
       try {
         const accessToken = await this.getAccessToken();
@@ -28,6 +28,7 @@ export default class ChatMessager{
           data: {
             session,
             message,
+            metadata,
             environment: this.config.chatbotenv,
           },
           params: {
