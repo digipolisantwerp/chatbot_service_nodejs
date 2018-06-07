@@ -7,9 +7,10 @@
     "declaration": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "target": "es2016",
+    "target": "es6",
     "lib": [
-      "es2017"
+      "es2017",
+      "dom"
     ]
   },
   "include": [
@@ -17,7 +18,6 @@
   ],
   "exclude": [
     "test/**/*",
-
     "tests",
     "dist"
   ]
