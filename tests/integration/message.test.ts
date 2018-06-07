@@ -101,15 +101,6 @@ describe('POST /api/chatbot`', () => {
         });
       expect(axios).toBeCalledWith({
         data: {
-          password: 'chatbotpass',
-          username: 'chatbotuser',
-        },
-        headers: { apikey: 'testkey' },
-        method: 'post',
-        url: 'https://apistore.be/chats/token',
-      });
-      expect(axios).toBeCalledWith({
-        data: {
           environment: 'production',
           message: 'hello world',
           session: 'sessionid',
