@@ -24,7 +24,7 @@ paths:
             $ref: "#/definitions/Message"
       responses:
         200:
-          description: "responce"
+          description: "response"
         400:
           description: "Bad request / Validation Error"
         500:
@@ -33,7 +33,7 @@ paths:
    post:
       tags:
       - "Message"
-      summary: "Send a Messag and make the backend add usercontext"
+      summary: "Send a Message and make the backend add usercontext"
       consumes:
       - "application/json"
       produces:
@@ -46,7 +46,7 @@ paths:
             $ref: "#/definitions/Message"
       responses:
         200:
-          description: "responce"
+          description: "response"
         400:
           description: "Bad request / Validation Error"
         500:
@@ -72,7 +72,7 @@ paths:
             $ref: "#/definitions/Message"
       responses:
         200:
-          description: "responce"
+          description: "response"
         400:
           description: "Bad request / Validation Error"
         500:

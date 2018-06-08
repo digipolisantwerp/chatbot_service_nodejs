@@ -7,13 +7,10 @@ import { ServiceConfig, ChatbotMessage } from './types';
 const createController = (config: ServiceConfig) =>
   async(req: Request, res: Response, next: NextFunction) => {
     try {
-      const result = Joi.validate(
+      const result = Joi.attempt(
         req.body,
         Joi.object().keys(validation.messagevalidation),
       );
-      if (result.error !== null) {
-        throw(result.error);
-      }
       const service = createService(config);
       const returnMessage = await service(req.body);
       res.json(returnMessage);

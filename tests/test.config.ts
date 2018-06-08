@@ -1,6 +1,6 @@
 export const environment = {
   NODE_ENV: 'test',
-  SERVICEURL: 'https://apistore.be',
+  SERVICEURL: 'https://localhost',
   CHATBOT: '123456',
   CHATBOT_ENV: 'production',
   CHATBOT_USER: 'cahtbotuser',

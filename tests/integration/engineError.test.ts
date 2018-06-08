@@ -2,7 +2,7 @@ import * as app from './../../example/express';
 import * as request from 'supertest';
 import axios from 'axios';
 
-const mockedErrorWidthResponce = {
+const mockedErrorWithResponse = {
   message: 'Request failed with status code 401',
   response:{
     data: {
@@ -17,7 +17,7 @@ const mockedErrorWidthResponce = {
 describe('POST /api/chatbot`', () => {
   describe('Test Call', () => {
     it('Expect The server to respond with a engine error if there is a problem with the call', async () => {
-      axios.mockRejectedValueOnce(mockedErrorWidthResponce);
+      axios.mockRejectedValueOnce(mockedErrorWithResponse);
       const { body, status  } = await request(app)
         .post(`/api/chatbot`)
         .send({
@@ -26,7 +26,7 @@ describe('POST /api/chatbot`', () => {
         });
       expect(status).toEqual(500);
       expect(body).toEqual({
-        ...mockedErrorWidthResponce.response.data.error,
+        ...mockedErrorWithResponse.response.data.error,
         name: 'ChatBotError',
       });
     });

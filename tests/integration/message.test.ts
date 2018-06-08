@@ -39,7 +39,17 @@ describe('POST /api/chatbot`', () => {
       expect(status).toEqual(400);
       expect(body).toEqual({
         title:'\"message\" is required',
-        message:'child \"message\" fails because [\"message\" is required]',
+        message:[
+          {
+            message:'"message" is required',
+            path:['message'],
+            type:'any.required',
+            context:{
+              key:'message',
+              label:'message',
+            },
+          },
+        ],
         url:'/api/chatbot',
         detail:[
           {
@@ -61,7 +71,17 @@ describe('POST /api/chatbot`', () => {
       expect(status).toEqual(400);
       expect(body).toEqual({
         title:'\"session_id\" is required',
-        message:'child \"session_id\" fails because [\"session_id\" is required]',
+        message:[
+          {
+            message:'"session_id" is required',
+            path:['session_id'],
+            type:'any.required',
+            context:{
+              key:'session_id',
+              label:'session_id',
+            },
+          },
+        ],
         url:'/api/chatbot',
         detail:[
           {
@@ -110,7 +130,7 @@ describe('POST /api/chatbot`', () => {
         params: {
           access_token: 'fake!',
         },
-        url: 'https://apistore.be/chats/123456/message',
+        url: 'https://localhost/chats/123456/message',
       });
 
       expect(status).toEqual(200);
@@ -140,7 +160,7 @@ describe('POST /api/chatbot`', () => {
         params: {
           access_token: 'fake!',
         },
-        url: 'https://apistore.be/chats/123456/message',
+        url: 'https://localhost/chats/123456/message',
       });
 
       expect(status).toEqual(200);

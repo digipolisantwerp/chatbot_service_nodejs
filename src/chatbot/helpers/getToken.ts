@@ -21,9 +21,9 @@ export default (username: string, password: string, url: string, apikey: string)
           message: e.message,
           name: 'ChatBotError',
         };
-        reject(errorObject);
+        return reject(errorObject);
       }
-      reject(e);
+      return reject(e);
     });
   });
 };

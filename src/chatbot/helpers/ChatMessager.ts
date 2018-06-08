@@ -42,9 +42,9 @@ export default class ChatMessager{
               ...e.response.data.error,
               name: 'ChatBotError',
             };
-            reject(errorObject);
+            return reject(errorObject);
           }
-          reject(e);
+          return reject(e);
         });
       } catch (e) {
         const errorObject = {

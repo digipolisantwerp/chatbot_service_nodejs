@@ -3,7 +3,7 @@ export default (err: any, req: Request, res: Response, next:NextFunction) => {
   if (err.name === 'ValidationError') {
     const validationError = {
       title: err.details[0].message,
-      message: err.message,
+      message: err.details,
       url: req.originalUrl,
       detail: err.details,
     };

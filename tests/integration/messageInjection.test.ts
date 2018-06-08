@@ -74,7 +74,17 @@ describe('POST /api/chatbot/inject`', () => {
       expect(status).toEqual(400);
       expect(body).toEqual({
         title:'\"message\" is required',
-        message:'child \"message\" fails because [\"message\" is required]',
+        message:[
+          {
+            message:'"message" is required',
+            path:['message'],
+            type:'any.required',
+            context:{
+              key:'message',
+              label:'message',
+            },
+          },
+        ],
         url:'/api/chatbot/inject',
         detail:[
           {
@@ -96,7 +106,17 @@ describe('POST /api/chatbot/inject`', () => {
       expect(status).toEqual(400);
       expect(body).toEqual({
         title:'\"session_id\" is required',
-        message:'child \"session_id\" fails because [\"session_id\" is required]',
+        message:[
+          {
+            message:'"session_id" is required',
+            path:['session_id'],
+            type:'any.required',
+            context:{
+              key:'session_id',
+              label:'session_id',
+            },
+          },
+        ],
         url:'/api/chatbot/inject',
         detail:[
           {
@@ -125,10 +145,6 @@ describe('POST /api/chatbot/inject`', () => {
         }),
       ).mockImplementationOnce(() =>
         Promise.resolve({
-          data: mockedMessageData,
-        }),
-      ).mockImplementationOnce(() =>
-        Promise.resolve({
           data: mockedMessage,
         }),
       );
@@ -141,35 +157,6 @@ describe('POST /api/chatbot/inject`', () => {
       expect(axios).toBeCalledWith({
         data: {
           environment: 'production',
-          message: 'init',
-          metadata: undefined,
-          session: 'sessionid',
-        },
-        headers: {
-          apikey: 'testkey',
-        },
-        method: 'post',
-        params: {
-          access_token: undefined,
-        },
-        url: 'https://apistore.be/chats/123456/message',
-      });
-      expect(axios).toBeCalledWith({
-        data: {
-          environment: 'production',
-          message: 'init',
-          session: 'sessionid',
-        },
-        headers: { apikey: 'testkey' },
-        method: 'post',
-        params: {
-          access_token: undefined,
-        },
-        url: 'https://apistore.be/chats/123456/message',
-      });
-      expect(axios).toBeCalledWith({
-        data: {
-          environment: 'production',
           message: 'Injectdataintouser',
           session: 'sessionid',
           metadata: { firstname: 'jasper' },
@@ -179,7 +166,7 @@ describe('POST /api/chatbot/inject`', () => {
         params: {
           access_token: undefined,
         },
-        url: 'https://apistore.be/chats/123456/message',
+        url: 'https://localhost/chats/123456/message',
       });
       expect(axios).toBeCalledWith({
         data: {
@@ -192,7 +179,7 @@ describe('POST /api/chatbot/inject`', () => {
         params: {
           access_token: undefined,
         },
-        url: 'https://apistore.be/chats/123456/message',
+        url: 'https://localhost/chats/123456/message',
       });
 
       expect(status).toEqual(200);
