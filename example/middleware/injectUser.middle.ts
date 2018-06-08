@@ -12,22 +12,16 @@ export default (req: Request, res: Response, next: NextFunction) => {
       password: process.env.CHATBOT_PASS,
       apikey: process.env.APIKEY,
     });
-    // @TODO: After the engine has been fixed remove the 'init' call
     // @TODO: Add your user from the session here
     return chatService({
       session_id: req.body.session_id,
-      message: 'init',
+      message: 'Injectdataintouser',
+      metadata: {
+        firstname: 'jasper',
+      },
     }).then((response:any) => {
-      chatService({
-        session_id: req.body.session_id,
-        message: 'Injectdataintouser',
-        metadata: {
-          firstname: 'jasper',
-        },
-      }).then((response:any) => {
-        addSession(req.body.session_id);
-        next();
-      });
+      addSession(req.body.session_id);
+      next();
     }).catch((e: any) => {
       next(e);
     });

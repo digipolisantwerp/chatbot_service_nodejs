@@ -1,3 +1,10 @@
 tsconfig.json
 src
 example
+swagger.yml
+nodemon.json
+tslint.json
+.env
+.env.example
+.editorconfig
+
