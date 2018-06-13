@@ -1,0 +1,98 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Chatbot Service"
+  license:
+    name: "MIT"
+schemes:
+- "http"
+paths:
+  /api/chatbot:
+   post:
+      tags:
+      - "Message"
+      summary: "Send a Message"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/Message"
+      responses:
+        200:
+          description: "response"
+        400:
+          description: "Bad request / Validation Error"
+        500:
+          description: "Internal error"
+  /api/chatbot/inject:
+   post:
+      tags:
+      - "Message"
+      summary: "Send a Message and make the backend add usercontext"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/Message"
+      responses:
+        200:
+          description: "response"
+        400:
+          description: "Bad request / Validation Error"
+        500:
+          description: "Internal error"
+  /api/chatbotsecure:
+    post:
+      tags:
+      - "Message"
+      summary: "Send a Message"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "header"
+          name: "authorization"
+          type: string
+          required: true
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/Message"
+      responses:
+        200:
+          description: "response"
+        400:
+          description: "Bad request / Validation Error"
+        500:
+          description: "Internal error"
+definitions:
+  Message:
+    type: "object"
+    required:
+    - "message"
+    - "photoUrls"
+    properties:
+      message:
+        type: "string"
+        example: "hello word"
+      session_id:
+        type: "string"
+        example: "12756595787"
+      type:
+        type: "string"
+        example: "message"
+      send:
+        type: "string"
+        example: "true"

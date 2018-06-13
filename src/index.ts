@@ -1,5 +1,5 @@
-import mprofielAdmin = require('./mprofiel-admin')
+import chatbot = require('./chatbot');
 
 export = {
-    mprofielAdmin
-}
+  chatbot,
+};
