@@ -14,27 +14,21 @@ app.post('/api/chatbot', lib.chatbot.createController({
   chatbot: process.env.CHATBOT,
   chatbotenv: process.env.CHATBOT_ENV,
   serviceUrl: process.env.SERVICEURL,
-  username: process.env.CHATBOT_USER,
-  password: process.env.CHATBOT_PASS,
-  apikey: process.env.APIKEY,
+  accessToken: process.env.ACCESSTOKEN,
 }));
 
 app.post('/api/chatbot/inject', injectUser, lib.chatbot.createController({
   chatbot: process.env.CHATBOT,
   chatbotenv: process.env.CHATBOT_ENV,
   serviceUrl: process.env.SERVICEURL,
-  username: process.env.CHATBOT_USER,
-  password: process.env.CHATBOT_PASS,
-  apikey: process.env.APIKEY,
+  accessToken: process.env.ACCESSTOKEN,
 }));
 
 app.post('/api/chatbotsecure', authtenticate, lib.chatbot.createController({
   chatbot: process.env.CHATBOT,
   chatbotenv: process.env.CHATBOT_ENV,
   serviceUrl: process.env.SERVICEURL,
-  username: process.env.CHATBOT_USER,
-  password: process.env.CHATBOT_PASS,
-  apikey: process.env.APIKEY,
+  accessToken: process.env.ACCESSTOKEN,
 }));
 app.use(errorHandler);
 

@@ -1,11 +1,10 @@
 export interface ServiceConfig {
-  serviceUrl: string;
+  accessToken: string;
   chatbot: string;
   chatbotenv: string;
-  username: string;
-  password: string;
-  apikey: string;
+  serviceUrl: string;
 }
+
 export interface ChatbotAccess {
   id: string;
   ttl: string;

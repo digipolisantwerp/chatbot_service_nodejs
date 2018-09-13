@@ -3,10 +3,8 @@ export const environment = {
   SERVICEURL: 'https://localhost',
   CHATBOT: '123456',
   CHATBOT_ENV: 'production',
-  CHATBOT_USER: 'cahtbotuser',
-  CHATBOT_PASS: 'chatbotpass',
-  TOKEN: 'testtoken',
-  APIKEY: 'testkey',
+  ACCESSTOKEN: 'fake!',
+  TOKEN: 'fake!',
 };
 
 Object.keys(environment).forEach((key) => {

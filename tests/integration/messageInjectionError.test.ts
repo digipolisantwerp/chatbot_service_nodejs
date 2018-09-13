@@ -90,7 +90,7 @@ describe('POST /api/chatbot/inject`', () => {
         .post(`/api/chatbot/inject`)
         .send({
           message: 'hello world',
-          session_id: '',
+          session_id: 'hello',
         });
       expect(status).toEqual(500);
     });
