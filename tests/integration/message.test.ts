@@ -101,15 +101,6 @@ describe('POST /api/chatbot`', () => {
     it('Expect The server to respond when we send it an message', async () => {
       axios.mockImplementationOnce(() =>
         Promise.resolve({
-          data: {
-            id:'fake!',
-            ttl:315569260000000,
-            created:'2017-04-27T11:31:18.147Z',
-            userId:'myid',
-          },
-        }),
-      ).mockImplementationOnce(() =>
-        Promise.resolve({
           data: mockedMessage,
         }),
       );
@@ -125,7 +116,6 @@ describe('POST /api/chatbot`', () => {
           message: 'hello world',
           session: 'sessionid',
         },
-        headers: { apikey: 'testkey' },
         method: 'post',
         params: {
           access_token: 'fake!',
@@ -155,7 +145,6 @@ describe('POST /api/chatbot`', () => {
           message: 'hello world2',
           session: 'sessionid',
         },
-        headers: { apikey: 'testkey' },
         method: 'post',
         params: {
           access_token: 'fake!',

@@ -14,6 +14,11 @@ All notable changes to this project will be documented in this file.
 ## [1.0.0] - 2018-06-13
 - Initial release.
 
+## [2.0.0] - 2018-09-13
+- Integration of new chatbot api:
+- Changes to the authentication mechanisms
+- New init params (accessToken instead of apikey + username/password)
+
 
 [Unreleased]: https://github.com/digipolisantwerp/chatbot_service_nodejs/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/digipolisantwerp/chatbot_service_nodejs/compare/v0.3.0...v1.0.0

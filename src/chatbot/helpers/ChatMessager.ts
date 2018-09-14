@@ -1,5 +1,4 @@
 import axios from 'axios';
-import getToken from './getToken';
 
 import { ServiceConfig, ChatbotAccess } from './../types';
 export default class ChatMessager{
@@ -10,21 +9,14 @@ export default class ChatMessager{
       return ChatMessager.instance;
     }
     this.config = config;
-    this.authentication = getToken(config.username, config.password, config.serviceUrl, config.apikey);
     ChatMessager.instance = this;
-  }
-  private async getAccessToken() {
-    const { id } = await this.authentication;
-    return id;
   }
   async sendMessage(message: string, session: string, metadata?: any) {
     return new Promise<object>(async(resolve, reject) => {
       try {
-        const accessToken = await this.getAccessToken();
         axios({
           url: `${this.config.serviceUrl}/chats/${this.config.chatbot}/message`,
           method: 'post',
-          headers: { apikey: this.config.apikey },
           data: {
             session,
             message,
@@ -32,7 +24,7 @@ export default class ChatMessager{
             environment: this.config.chatbotenv,
           },
           params: {
-            access_token: accessToken,
+            access_token: this.config.accessToken,
           },
         }).then((response) => {
           resolve(response.data);

@@ -1,6 +1,6 @@
 {
   "name": "@acpaas-ui-widgets/nodejs-chatbot",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Chatbot Smart Widget BFF package (Node)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -44,7 +44,7 @@
     "@types/supertest": "^2.0.4",
     "jasmine-growl-reporter": "^1.0.1",
     "jasmine-node": "^1.14.5",
-    "jest": "^23.0.1",
+    "jest": "^23.6.0",
     "supertest": "^3.1.0",
     "ts-jest": "^22.4.6",
     "ts-node": "^6.0.0",

@@ -161,7 +161,6 @@ describe('POST /api/chatbot/inject`', () => {
           session: 'sessionid',
           metadata: { firstname: 'jasper' },
         },
-        headers: { apikey: 'testkey' },
         method: 'post',
         params: {
           access_token: undefined,
@@ -174,7 +173,6 @@ describe('POST /api/chatbot/inject`', () => {
           message: 'hello world',
           session: 'sessionid',
         },
-        headers: { apikey: 'testkey' },
         method: 'post',
         params: {
           access_token: undefined,

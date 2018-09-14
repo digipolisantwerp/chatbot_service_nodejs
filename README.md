@@ -25,12 +25,10 @@ const express = require('express');
 const app = express()
 const chatbotService = require('@acpaas-ui-widgets/nodejs-chatbot-service');
 const controller = chatbotService.createController({
+  accessToken: <ACCESS_TOKEN> (you can find this in the chatbot interface under 'Instellingen'),
   chatbot: <CHATBOT> the Id of the chatbot you want to address,
   chatbotenv: <CHATBOT_ENV> test | production,
   serviceUrl: <SERVICEURL> endpoint (api-store),
-  username: <CHATBOT_USER> user to generate token,
-  password: <CHATBOT_PASS> password to generate token,
-  apikey: <APIKEY> your api-store api key,
 });
 app.get('/api/chatbot', controller);
 app.listen(3000);
@@ -41,14 +39,12 @@ app.listen(3000);
 Create a .env file containing:
 
 ```sh
-SERVICEURL=
+ACCESS_TOKEN=
 CHATBOT=
 CHATBOT_ENV=
-CHATBOT_USER=
-CHATBOT_PASS=
+PORT=(optional, defaults to 3000)
+SERVICEURL=
 TOKEN=
-APIKEY=
-PORT=(optional defaults to 3000)
 ```
 
 Obtain the client id and client secret by creating a contract on the mprofiel-admin service on [api-store-o.antwerpen.be](https://api-store-o.antwerpen.be).
