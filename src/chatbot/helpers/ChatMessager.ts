@@ -5,7 +5,7 @@ export default class ChatMessager{
   private static instance: ChatMessager;
   // Assign "new Singleton()" here to avoid lazy initialisation
   constructor (config: ServiceConfig) {
-    if (ChatMessager.instance) {
+    if (ChatMessager.instance && ChatMessager.instance.config.chatbot === config.chatbot) {
       return ChatMessager.instance;
     }
     this.config = config;
