@@ -13,7 +13,7 @@ Copy the .npmrc file from this repo to your application's folder.
 Then install (you will need to be on the digipolis network):
 
 ```sh
-> npm install @acpaas-ui-widgets/nodejs-chatbot-service
+> npm install --save @acpaas-ui-widgets/nodejs-chatbot
 ```
 
 ### Using
