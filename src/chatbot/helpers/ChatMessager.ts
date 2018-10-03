@@ -11,44 +11,35 @@ export default class ChatMessager{
     this.config = config;
     ChatMessager.instance = this;
   }
-  async sendMessage(message: string, session: string, metadata?: any) {
-    return new Promise<object>(async(resolve, reject) => {
-      try {
-        axios({
-          url: `${this.config.serviceUrl}/chats/${this.config.chatbot}/message`,
-          method: 'post',
-          data: {
-            session,
-            message,
-            metadata,
-            environment: this.config.chatbotenv,
-          },
-          params: {
-            access_token: this.config.accessToken,
-          },
-          headers: {
-            apikey: this.config.apikey,
-          },
-        }).then((response:any) => {
-          resolve(response.data);
-        }).catch((e) => {
-          if (e.response) {
-            const errorObject = {
-              ...e.response.data.error,
-              name: 'ChatBotError',
-            };
-            return reject(errorObject);
-          }
-          return reject(e);
-        });
-      } catch (e) {
-        const errorObject = {
-          name: 'ChatBotError',
-          message: e.message,
-          status: e.status,
-        };
-        reject(errorObject);
-      }
+  sendMessage(message: string, session: string, metadata?: any) {
+    return new Promise<object>((resolve, reject) => {
+      axios({
+        url: `${this.config.serviceUrl}/chats/${this.config.chatbot}/message`,
+        method: 'post',
+        data: {
+          session,
+          message,
+          metadata,
+          environment: this.config.chatbotenv,
+        },
+        params: {
+          access_token: this.config.accessToken,
+        },
+        headers: {
+          apikey: this.config.apikey,
+        },
+      }).then((response:any) => {
+        return resolve(response.data);
+      }).catch((e) => {
+        if (e.response) {
+          const errorObject = {
+            ...e.response.data.error,
+            name: 'ChatBotError',
+          };
+          return reject(errorObject);
+        }
+        return reject(e);
+      });
     });
   }
   config: ServiceConfig;

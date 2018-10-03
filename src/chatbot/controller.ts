@@ -21,6 +21,6 @@ const createController = (config: ServiceConfig) =>
 
 const chatService = (config: ServiceConfig) => async(body: ChatbotMessage) => {
   const service = createService(config);
-  const returnMessage = await service(body);
+  return await service(body);
 };
 export { createController, chatService };
