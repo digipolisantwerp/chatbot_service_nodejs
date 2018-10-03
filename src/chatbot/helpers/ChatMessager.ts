@@ -26,7 +26,10 @@ export default class ChatMessager{
           params: {
             access_token: this.config.accessToken,
           },
-        }).then((response) => {
+          headers: {
+            apikey: this.config.apikey,
+          },
+        }).then((response:any) => {
           resolve(response.data);
         }).catch((e) => {
           if (e.response) {
@@ -49,6 +52,5 @@ export default class ChatMessager{
     });
   }
   config: ServiceConfig;
-  authentication: Promise<ChatbotAccess>
-;
+  authentication: Promise<ChatbotAccess>;
 }

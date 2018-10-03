@@ -9,6 +9,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
       chatbotenv: process.env.CHATBOT_ENV,
       serviceUrl: process.env.SERVICEURL,
       accessToken: process.env.ACCESSTOKEN,
+      apikey: process.env.APIKEY
     });
     // @TODO: Add your user from the session here
     return chatService({

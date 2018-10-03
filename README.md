@@ -29,6 +29,7 @@ const controller = chatbotService.createController({
   chatbot: <CHATBOT> the Id of the chatbot you want to address,
   chatbotenv: <CHATBOT_ENV> test | production,
   serviceUrl: <SERVICEURL> endpoint (api-store),
+  apikey: <APIKEY> the apikey from the api-store
 });
 app.get('/api/chatbot', controller);
 app.listen(3000);
@@ -45,6 +46,7 @@ CHATBOT_ENV=
 PORT=(optional, defaults to 3000)
 SERVICEURL=
 TOKEN=
+APIKEY=
 ```
 
 Obtain the client id and client secret by creating a contract on the mprofiel-admin service on [api-store-o.antwerpen.be](https://api-store-o.antwerpen.be).

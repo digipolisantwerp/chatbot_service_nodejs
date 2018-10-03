@@ -5,6 +5,7 @@ export const environment = {
   CHATBOT_ENV: 'production',
   ACCESSTOKEN: 'fake!',
   TOKEN: 'fake!',
+  APIKEY: 'this-is-the-key',
 };
 
 Object.keys(environment).forEach((key) => {

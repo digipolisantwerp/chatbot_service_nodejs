@@ -3,6 +3,7 @@ export interface ServiceConfig {
   chatbot: string;
   chatbotenv: string;
   serviceUrl: string;
+  apikey: string;
 }
 
 export interface ChatbotAccess {
