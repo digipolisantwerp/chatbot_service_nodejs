@@ -163,7 +163,7 @@ describe('POST /api/chatbot/inject`', () => {
         },
         method: 'post',
         params: {
-          access_token: "fake!",
+          access_token: 'fake!',
         },
         headers: {
           apikey: 'this-is-the-key',
