@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-
+[2.0.2]: https://github.com/digipolisantwerp/chatbot_service_nodejs/tree/v2.0.2
 ## [2.0.2] - 2018-10-03
 - Fixed problem with case sensitivity on linux
 - added apikey which is necessary for usage with the api gateway
@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - Changes to the authentication mechanisms
 - New init params (accessToken instead of apikey + username/password)
 
+[1.0.0]: https://github.com/digipolisantwerp/chatbot_service_nodejs/compare/v0.3.0...v1.0.0
 ## [1.0.0] - 2018-06-13
 
 - Initial release.
@@ -29,4 +30,3 @@ All notable changes to this project will be documented in this file.
 -->
 
 [Unreleased]: https://github.com/digipolisantwerp/chatbot_service_nodejs/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/digipolisantwerp/chatbot_service_nodejs/compare/v0.3.0...v1.0.0
