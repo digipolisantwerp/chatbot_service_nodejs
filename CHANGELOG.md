@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file.
 ## [2.0.1] - 2018-09-13
 - Prevent package from returning same instance for each chatbot
 
-## [2.1.0] - 2018-10-03
+## [2.0.2] - 2018-10-03
 - Fixed problem with case sensitivity on linux
 - added apikey which is necessary for usage with the api gateway
 
