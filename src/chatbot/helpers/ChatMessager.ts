@@ -52,6 +52,5 @@ export default class ChatMessager{
     });
   }
   config: ServiceConfig;
-  authentication: Promise<ChatbotAccess>
-;
+  authentication: Promise<ChatbotAccess>;
 }

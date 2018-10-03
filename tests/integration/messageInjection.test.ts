@@ -163,19 +163,10 @@ describe('POST /api/chatbot/inject`', () => {
         },
         method: 'post',
         params: {
-          access_token: undefined,
+          access_token: "fake!",
         },
-        url: 'https://localhost/chats/123456/message',
-      });
-      expect(axios).toBeCalledWith({
-        data: {
-          environment: 'production',
-          message: 'hello world',
-          session: 'sessionid',
-        },
-        method: 'post',
-        params: {
-          access_token: undefined,
+        headers: {
+          apikey: 'this-is-the-key',
         },
         url: 'https://localhost/chats/123456/message',
       });
