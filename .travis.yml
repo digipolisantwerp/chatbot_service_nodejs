@@ -1,2 +1,2 @@
 script:
-    - "echo build"
+    - echo "build"
