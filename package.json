@@ -11,6 +11,7 @@
     "build:ts": "tsc",
     "prepublishOnly": "npm run build",
     "test": "jest --coverage",
+    "testtravis": "jest --coverage && cat ./coverage/lcov.info",
     "test:istanbul": "node_modules/.bin/istanbul cover ./node_modules/jasmine-node/bin/jasmine-node test"
   },
   "repository": {
