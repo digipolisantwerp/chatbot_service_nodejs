@@ -1,0 +1,16 @@
+node_js:
+  - "node"
+  - "6"
+  - "8"
+  - "10"
+
+sudo: false
+
+script:
+  - npm install
+  - npm run testtravis
+
+after_script:
+  - "npm run test:cov"
+  - "npm install coveralls && cat ./coverage/lcov.info | coveralls"
+
