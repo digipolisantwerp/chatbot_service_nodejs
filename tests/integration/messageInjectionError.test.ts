@@ -94,5 +94,23 @@ describe('POST /api/chatbot/inject`', () => {
         });
       expect(status).toEqual(500);
     });
+    it.only('Expect The server to respond with an error', async () => {
+      axios.mockImplementationOnce(() =>
+        Promise.reject({
+          data: mockedMessageData,
+        }),
+      ).mockImplementationOnce(() =>
+        Promise.resolve({
+          data: mockedMessage,
+        }),
+      );
+      const { body, status  } = await request(app)
+        .post(`/api/chatbot/inject`)
+        .send({
+          message: 'hello world',
+          session_id: 'hello2',
+        });
+      expect(status).toEqual(500);
+    });
   });
 });
