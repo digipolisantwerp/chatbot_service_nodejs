@@ -1,2 +1,11 @@
+node_js:
+  - "node"
+  - "6"
+  - "8"
+  - "10"
+
+sudo: false
+
 script:
-    - echo "build"
+  - npm run test
+
