@@ -10,6 +10,7 @@
     "build": "npm run clean && npm run build:ts",
     "build:ts": "tsc",
     "prepublishOnly": "npm run build",
+    "lint": "tslint -c tslint.json 'src/**/**/*.ts'",
     "test": "jest --coverage",
     "test:istanbul": "node_modules/.bin/istanbul cover ./node_modules/jasmine-node/bin/jasmine-node test"
   },
@@ -48,7 +49,7 @@
     "supertest": "^3.1.0",
     "ts-jest": "^22.4.6",
     "ts-node": "^6.0.0",
-    "tslint": "^5.10.0",
+    "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2"
   },
   "publishConfig": {

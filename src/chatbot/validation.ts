@@ -1,11 +1,10 @@
 import * as Joi from 'joi';
 
-const messagevalidation =
-  {
+const messagevalidation = {
     message: Joi.string().required(),
+    send: Joi.boolean(),
     session_id: Joi.string().required(),
     type: Joi.string(),
-    send: Joi.boolean(),
   };
 export {
     messagevalidation,

@@ -1,11 +1,11 @@
 import * as Joi from 'joi';
 import * as validation from './validation';
-import createService = require('./service');
-import { Request, Response, NextFunction } from 'express';
-import { ServiceConfig, ChatbotMessage } from './types';
+import createService from './service';
+import { NextFunction, Request, Response } from 'express';
+import { ChatbotMessage, ServiceConfig } from './types';
 
 const createController = (config: ServiceConfig) =>
-  async(req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response, next: NextFunction) => {
     try {
       const result = Joi.attempt(
         req.body,
@@ -19,7 +19,7 @@ const createController = (config: ServiceConfig) =>
     }
   };
 
-const chatService = (config: ServiceConfig) => async(body: ChatbotMessage) => {
+const chatService = (config: ServiceConfig) => async (body: ChatbotMessage) => {
   const service = createService(config);
   return service(body);
 };
