@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/digipolisantwerp/chatbot_service_nodejs.svg?branch=master)](https://travis-ci.com/digipolisantwerp/chatbot_service_nodejs)
-[![Coverage Status](https://coveralls.io/repos/github/digipolisantwerp/chatbot_service_nodejs/badge.svg?branch=feature%2Ftravis)](https://coveralls.io/github/digipolisantwerp/chatbot_service_nodejs?branch=feature%2Ftravis)
+[![Coverage Status](https://coveralls.io/repos/github/digipolisantwerp/chatbot_service_nodejs/badge.svg?branch=master)](https://coveralls.io/github/digipolisantwerp/chatbot_service_nodejs?branch=master)
 # Chatbot Smart Widget BFF (Node)
 
 This is a Node.js backend service library to create a BFF service for the Chatbot Smart Widget. The widget provides a chat interface.
