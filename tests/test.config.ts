@@ -1,11 +1,11 @@
 export const environment = {
-  NODE_ENV: 'test',
-  SERVICEURL: 'https://localhost',
+  ACCESSTOKEN: 'fake!',
+  APIKEY: 'this-is-the-key',
   CHATBOT: '123456',
   CHATBOT_ENV: 'production',
-  ACCESSTOKEN: 'fake!',
+  NODE_ENV: 'test',
+  SERVICEURL: 'https://localhost',
   TOKEN: 'fake!',
-  APIKEY: 'this-is-the-key',
 };
 
 Object.keys(environment).forEach((key) => {
