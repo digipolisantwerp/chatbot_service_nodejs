@@ -121,6 +121,9 @@ describe('POST /api/chatbot`', () => {
           access_token: 'fake!',
         },
         url: 'https://localhost/chats/123456/message',
+        headers: {
+          apikey: 'this-is-the-key'
+        }
       });
 
       expect(status).toEqual(200);
@@ -148,6 +151,9 @@ describe('POST /api/chatbot`', () => {
         method: 'post',
         params: {
           access_token: 'fake!',
+        },
+        headers: {
+          apikey: 'this-is-the-key'
         },
         url: 'https://localhost/chats/123456/message',
       });

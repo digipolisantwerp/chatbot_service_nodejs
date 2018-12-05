@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/digipolisantwerp/chatbot_service_nodejs.svg?branch=master)](https://travis-ci.com/digipolisantwerp/chatbot_service_nodejs)
+[![Coverage Status](https://coveralls.io/repos/github/digipolisantwerp/chatbot_service_nodejs/badge.svg?branch=master)](https://coveralls.io/github/digipolisantwerp/chatbot_service_nodejs?branch=master)
 # Chatbot Smart Widget BFF (Node)
 
 This is a Node.js backend service library to create a BFF service for the Chatbot Smart Widget. The widget provides a chat interface.
@@ -13,7 +15,7 @@ Copy the .npmrc file from this repo to your application's folder.
 Then install (you will need to be on the digipolis network):
 
 ```sh
-> npm install @acpaas-ui-widgets/nodejs-chatbot-service
+> npm install --save @acpaas-ui-widgets/nodejs-chatbot
 ```
 
 ### Using
@@ -29,6 +31,7 @@ const controller = chatbotService.createController({
   chatbot: <CHATBOT> the Id of the chatbot you want to address,
   chatbotenv: <CHATBOT_ENV> test | production,
   serviceUrl: <SERVICEURL> endpoint (api-store),
+  apikey: <APIKEY> the apikey from the api-store
 });
 app.get('/api/chatbot', controller);
 app.listen(3000);
@@ -45,6 +48,7 @@ CHATBOT_ENV=
 PORT=(optional, defaults to 3000)
 SERVICEURL=
 TOKEN=
+APIKEY=
 ```
 
 Obtain the client id and client secret by creating a contract on the mprofiel-admin service on [api-store-o.antwerpen.be](https://api-store-o.antwerpen.be).
