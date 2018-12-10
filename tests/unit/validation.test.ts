@@ -11,8 +11,8 @@ const defaultMessage = {
   type: 'mytype',
 };
 
-const hasError = (obj, key, force = false) => {
-  const input = force ? obj : Object.assign({}, defaultMessage, obj);
+const hasError = (obj, key, mergeDefault = false) => {
+  const input = mergeDefault ? obj : Object.assign({}, defaultMessage, obj);
   const { error } = Joi.validate(input, schema);
   return error && error.details.some((detail) => {
     return detail.context.key === key;
