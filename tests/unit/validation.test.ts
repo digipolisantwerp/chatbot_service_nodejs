@@ -11,8 +11,8 @@ const defaultMessage = {
   type: 'mytype',
 };
 
-const hasError = (obj, key, mergeDefault = false) => {
-  const input = mergeDefault ? obj : Object.assign({}, defaultMessage, obj);
+const hasError = (obj, key, mergeWithDefault = true) => {
+  const input = mergeWithDefault ? Object.assign({}, defaultMessage, obj) : obj;
   const { error } = Joi.validate(input, schema);
   return error && error.details.some((detail) => {
     return detail.context.key === key;
@@ -35,7 +35,7 @@ describe('Body validation', () => {
         send: true,
         session_id: '11111',
         type: 'mytype',
-      }, 'message', true)).toBeTruthy();
+      }, 'message', false)).toBeTruthy();
     });
   });
 
@@ -63,7 +63,7 @@ describe('Body validation', () => {
         },
         send: true,
         type: 'mytype',
-      }, 'session_id', true)).toBeTruthy();
+      }, 'session_id', false)).toBeTruthy();
     });
   });
 
