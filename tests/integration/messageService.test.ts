@@ -52,4 +52,30 @@ describe('ChatService', () => {
       expect(response).toEqual(mockedMessage);
     });
   });
+  it('Expect error', async () => {
+    axios.mockImplementationOnce(() =>
+      Promise.reject({
+        response: {status: 403} ,
+      }),
+    );
+    const chatService = lib.chatbot.chatService({
+      chatbot: process.env.CHATBOT,
+      chatbotenv: process.env.CHATBOT_ENV,
+      serviceUrl: process.env.SERVICEURL,
+      accessToken: process.env.ACCESSTOKEN,
+      apikey: process.env.APIKEY
+    });
+    return chatService({
+      session_id: 'abc',
+      message: 'Injectdataintouser',
+      metadata: {
+        firstname: 'jasper',
+      },
+    }).catch((e) => {
+      expect(e).toEqual({
+        status: 403,
+        name: 'ChatBotError',
+      });
+    });
+  });
 });
