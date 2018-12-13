@@ -34,14 +34,18 @@ export default class ChatMessager {
       }).then((response: any) => {
         return resolve(response.data);
       }).catch((e) => {
-        if (e.response) {
+        if (e.response && e.response.data && e.response.data.error) {
           const errorObject = {
             ...e.response.data.error,
             name: 'ChatBotError',
           };
           return reject(errorObject);
         }
-        return reject(e);
+        const error = {
+          ...e.response,
+          name: 'ChatBotError',
+        };
+        return reject(error);
       });
     });
   }

@@ -1,4 +1,5 @@
 import * as app from './../../example/express';
+import * as sessionCheck from './../../example/helpers/sessionCheck';
 import * as request from 'supertest';
 import axios from 'axios';
 
@@ -131,9 +132,23 @@ describe('POST /api/chatbot/inject`', () => {
         ],
       });
     });
+    it('Expect error on error', async () => {
+      sessionCheck.addSession = jest.fn();
+      sessionCheck.addSession.mockImplementationOnce(() => {
+        throw new Error('oeps');
+      });
+      const { body, status  } = await request(app)
+        .post(`/api/chatbot/inject`)
+        .send({
+          session_id: 'sessionid',
+          message: 'hello world',
+        });
+      expect(status).toEqual(500);
+    });
   });
   describe('Test Call', () => {
     it('Expect The server to respond when we send it an message', async () => {
+      sessionCheck.addSession.mockReset();
       axios.mockImplementationOnce(() =>
         Promise.resolve({
           data: {
