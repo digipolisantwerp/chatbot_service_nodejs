@@ -7,7 +7,7 @@ const mockedError = {
   message: 'Request failed with status code 401',
   name: 'ChatBotError',
 };
-const mockedErrorWidthResponseAndData = {
+const mockedErrorWithResponseAndData = {
   message: 'Request failed with status code 401',
   response:{
     data: {
@@ -23,7 +23,7 @@ const mockedErrorWidthResponseAndData = {
 describe('POST /api/chatbot`', () => {
   describe('Test Call', () => {
     it('Expect The server to respond with a chatbotAutherror if there is a problem with the auth', async () => {
-      axios.mockRejectedValueOnce(mockedErrorWidthResponseAndData);
+      axios.mockRejectedValueOnce(mockedErrorWithResponseAndData);
       const { body, status  } = await request(app)
         .post(`/api/chatbot`)
         .send({
@@ -32,14 +32,14 @@ describe('POST /api/chatbot`', () => {
         });
       expect(status).toEqual(401);
       expect(body).toEqual({
-        ...mockedErrorWidthResponseAndData.response.data.error,
+        ...mockedErrorWithResponseAndData.response.data.error,
         name: 'ChatBotError',
       });
     });
   });
 });
 
-const mockedErrorWidthResponse = {
+const mockedErrorWithResponse = {
   message: 'Request failed with status code 401',
   response:{
     status: 401,
@@ -51,7 +51,7 @@ const mockedErrorWidthResponse = {
 describe('POST /api/chatbot`', () => {
   describe('Test Call', () => {
     it('Expect The server to respond with a chatbotAutherror if there is a problem with the auth', async () => {
-      axios.mockRejectedValueOnce(mockedErrorWidthResponse);
+      axios.mockRejectedValueOnce(mockedErrorWithResponse);
       const { body, status  } = await request(app)
         .post(`/api/chatbot`)
         .send({
@@ -60,7 +60,7 @@ describe('POST /api/chatbot`', () => {
         });
       expect(status).toEqual(401);
       expect(body).toEqual({
-        ...mockedErrorWidthResponse.response,
+        ...mockedErrorWithResponse.response,
         name: 'ChatBotError',
       });
     });

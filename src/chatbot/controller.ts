@@ -20,12 +20,8 @@ const createController = (config: ServiceConfig) =>
   };
 
 const chatService = (config: ServiceConfig) => async (body: ChatbotMessage) => {
-  try {
     const service = createService(config);
     return await service(body);
-  } catch (e) {
-    throw e;
-  }
 };
 
 export { createController, chatService };
