@@ -26,14 +26,14 @@ Express example:
 const express = require('express');
 const app = express()
 const chatbotService = require('@acpaas-ui-widgets/nodejs-chatbot-service');
-const controller = chatbotService.createController({
+const controller = chatbotService.chatbot.createController({
   accessToken: <ACCESS_TOKEN> (you can find this in the chatbot interface under 'Instellingen'),
   chatbot: <CHATBOT> the Id of the chatbot you want to address,
   chatbotenv: <CHATBOT_ENV> test | production,
   serviceUrl: <SERVICEURL> endpoint (api-store),
   apikey: <APIKEY> the apikey from the api-store
 });
-app.get('/api/chatbot', controller);
+app.post('/api/chatbot', controller);
 app.listen(3000);
 ```
 
@@ -67,7 +67,7 @@ Run the service:
 ```sh
 POST: /chats/{botId}/message?access_token={access_token}
 {
-  "message": "Hello World", 
+  "message": "Hello World",
   "session_id": "<your session id>",
   "type": "message",
   "send": "true"
