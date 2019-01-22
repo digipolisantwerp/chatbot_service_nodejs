@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+[2.2.1]: https://github.com/digipolisantwerp/chatbot_service_nodejs/tree/v2.2.1
+## [2.2.1] - 2018-10-03
+- Fix: change meta to metadata in body
+
+[2.2.0]: https://github.com/digipolisantwerp/chatbot_service_nodejs/tree/v2.2.0
+## [2.2.0] - 2018-10-03
+- Provide default export for use in typescript or Babel
+
+[2.1.0]: https://github.com/digipolisantwerp/chatbot_service_nodejs/tree/v2.1.0
+## [2.1.0] - 2018-10-03
+- Improve error handling
+
 [2.0.3]: https://github.com/digipolisantwerp/chatbot_service_nodejs/tree/v2.0.3
 ## [2.0.3] - 2018-10-03
 - Fix: service response
