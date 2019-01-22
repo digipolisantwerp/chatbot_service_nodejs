@@ -1,5 +1,4 @@
 import chatbot = require('./chatbot');
 
-export = {
-  chatbot,
-};
+export default chatbot;
+export { chatbot };
