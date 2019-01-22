@@ -3,9 +3,11 @@ import * as request from 'supertest';
 import axios from 'axios';
 
 const mockedError = {
-  status: 401,
-  message: 'Request failed with status code 401',
-  name: 'ChatBotError',
+  response: {
+    status: 401,
+    message: 'Request failed with status code 401',
+    name: 'ChatBotError',
+  },
 };
 
 describe('POST /api/chatbot`', () => {
@@ -19,7 +21,7 @@ describe('POST /api/chatbot`', () => {
           session_id: 'sessionid',
         });
       expect(status).toEqual(401);
-      expect(body).toEqual(mockedError);
+      expect(body).toEqual(mockedError.response);
     });
   });
 });
