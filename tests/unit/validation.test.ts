@@ -78,10 +78,10 @@ describe('Body validation', () => {
 
   describe('meta validation', () => {
     it('should be valid on a object', () => {
-      expect(hasError({ meta: { x: 1 } }, 'meta')).toBeFalsy();
+      expect(hasError({ metadata: { x: 1 } }, 'metadata')).toBeFalsy();
     });
     it('should be invalid on no object', () => {
-      expect(hasError({ meta: true }, 'meta')).toBeTruthy();
+      expect(hasError({ metadata: true }, 'metadata')).toBeTruthy();
     });
   });
 

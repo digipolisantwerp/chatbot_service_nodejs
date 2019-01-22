@@ -92,13 +92,19 @@ POST: /chats/{botId}/message?access_token={access_token}
   "message": "Hello World",
   "session_id": "<your session id>",
   "type": "message",
-  "send": "true"
+  "send": "true",
+  "metadata": {
+    "firstname": "Example",
+    "lastname:": "name",
+    "..." : "..."
+  }
 }
 ```
 - **message:** Your message to the bot,
 - **session_id:** The chatsession
 - **type:** message
 - **send:** true
+- **metadata:**: Metadata to be passed along, this has to be an object.
 
 An [example swagger description](swagger.yml) is included.
 
