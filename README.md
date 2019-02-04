@@ -20,7 +20,7 @@ Then install (you will need to be on the digipolis network):
 
 ### Using
 
-####Express example:
+#### Express example:
 
 ```js
 const express = require('express');
@@ -40,7 +40,7 @@ app.post('/api/chatbot', controller);
 app.listen(3000);
 ```
 
-####Typescript example:
+#### Typescript example:
 
 ```js
 import * as express from 'express';
@@ -59,6 +59,7 @@ const controller = chatbotService.createController({
 app.post('/api/chatbot', controller);
 app.listen(3000);
 ```
+
 ## Run the demo app
 
 Create a .env file containing:
@@ -73,9 +74,9 @@ TOKEN=
 APIKEY=
 ```
 
-Obtain the client id and client secret by creating a contract on the mprofiel-admin service on [api-store-o.antwerpen.be](https://api-store-o.antwerpen.be).
+Obtain the APIKEY by taking out a contract on the `chatbot-api` service on [api-store.antwerpen.be](https://api-store.antwerpen.be). The ACCESS_TOKEN value can be obtained at the bottom of the settings screen ("API token") on [chatbots.antwerpen.be](https://chatbots.antwerpen.be).
 
-(Remove the -o extension in the URL's to use the production api.)
+(Add `-o` or `-a` extensions where needed to the host names to access the dev or acceptation environments.)
 
 Run the service:
 
@@ -100,6 +101,7 @@ POST: /chats/{botId}/message?access_token={access_token}
   }
 }
 ```
+
 - **message:** Your message to the bot,
 - **session_id:** The chatsession
 - **type:** message
