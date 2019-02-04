@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import * as util from 'util'; // https://stackoverflow.com/a/18354289/20980
+// some errors have circular references, avoid errors when encoding them
+import JSON = require('circular-json');
 export default (err: any, req: Request, res: Response, next: NextFunction) => {
   res.setHeader('Content-Type', 'application/json');
   if (err.name === 'ValidationError') {
@@ -13,10 +14,10 @@ export default (err: any, req: Request, res: Response, next: NextFunction) => {
   }
   if (err.name === 'ChatBotError') {
     const status = err.status || 500;
-    return res.status(status).send(util.inspect(err));
+    return res.status(status).send(JSON.stringify(err));
   }
   if (err.status) {
-    return res.status(err.status).send(util.inspect(err));
+    return res.status(err.status).send(JSON.stringify(err));
   }
-  return res.status(500).send(util.inspect(err));
+  return res.status(500).send(JSON.stringify(err));
 };
