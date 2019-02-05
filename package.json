@@ -11,8 +11,7 @@
     "build:ts": "tsc",
     "prepublishOnly": "npm run build",
     "lint": "tslint -c tslint.json 'src/**/**/*.ts'",
-    "test": "jest --coverage",
-    "test:istanbul": "node_modules/.bin/istanbul cover ./node_modules/jasmine-node/bin/jasmine-node test"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -44,7 +43,6 @@
     "@types/node": "^9.6.5",
     "@types/supertest": "^2.0.4",
     "jasmine-growl-reporter": "^1.0.1",
-    "jasmine-node": "^1.14.5",
     "jest": "^23.6.0",
     "supertest": "^3.1.0",
     "ts-jest": "^22.4.6",

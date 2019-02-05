@@ -1,4 +1,4 @@
-require('dotenv-safe').config();
+require('dotenv-safe').config({ allowEmptyValues: true });
 import * as app from './express';
 
 const port = process.env.PORT || 3000;
