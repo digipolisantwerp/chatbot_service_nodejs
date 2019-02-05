@@ -76,7 +76,7 @@ APIKEY=
 
 Obtain the APIKEY by taking out a contract on the `chatbot-api` service on [api-store.antwerpen.be](https://api-store.antwerpen.be). The ACCESS_TOKEN value can be obtained at the bottom of the settings screen ("API token") on [chatbots.antwerpen.be](https://chatbots.antwerpen.be).
 
-(Add `-o` or `-a` extensions where needed to the host names to access the dev or acceptation environments.)
+(Add `-o` or `-a` extensions where needed to the host names to access the development or acceptance environments.)
 
 Run the service:
 
