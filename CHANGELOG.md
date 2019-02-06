@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+[2.2.2]: https://github.com/digipolisantwerp/chatbot_service_nodejs/tree/v2.2.2
+## [2.2.2] - 2019-02-06
+- Fix: error circular json:
+- Remove unnecessary dependencies
+- Fix security issues in dependencies
+- Correct documentation
+
 [2.2.1]: https://github.com/digipolisantwerp/chatbot_service_nodejs/tree/v2.2.1
 ## [2.2.1] - 2018-10-03
 - Fix: change meta to metadata in body
