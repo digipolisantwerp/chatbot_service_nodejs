@@ -11,7 +11,7 @@ action "GitHub Action for npm" {
 action "Filters for GitHub Actions" {
   uses = "actions/bin/filter@9d4ef995a71b0771f438dd7438851858f4a55d0c"
   needs = ["GitHub Action for npm"]
-  runs = "branch master"
+  args = "branch master"
 }
 
 action "GitHub Action for npm-1" {
