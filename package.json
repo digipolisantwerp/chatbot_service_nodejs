@@ -50,9 +50,6 @@
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.9.2"
   },
-  "publishConfig": {
-    "registry": "https://nexusrepo.antwerpen.be/repository/npm-private/"
-  },
   "jest": {
     "verbose": true,
     "notify": false,
