@@ -15,12 +15,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trianglejuice/chatbot_service_angular.git"
+    "url": "git+https://github.com/digipolisantwerp/chatbot_service_nodejs"
   },
-  "author": {
-    "name": "Jasper Van Proeyen",
-    "email": "jasper.vanproeyen@digipolis.be"
-  },
+  "contributors": [
+    {
+      "name": "Jasper Van Proeyen",
+      "email": "jasper.vanproeyen@digipolis.be"
+    },
+    {
+      "name": "Joeri Sebrechts",
+      "email": "Joeri.Sebrechts@digipolis.be"
+    },
+    {
+      "name": "Olivier Van den Mooter",
+      "email": "olivier@vademo.be"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
