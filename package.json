@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/digipolisantwerp/chatbot_service_nodejs"
+    "url": "github:digipolisantwerp/chatbot_service_nodejs"
   },
   "contributors": [
     {
