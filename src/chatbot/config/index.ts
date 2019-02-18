@@ -20,4 +20,4 @@ const fakeServiceResponse = {
 
 export {
   fakeServiceResponse,
-}
+};
