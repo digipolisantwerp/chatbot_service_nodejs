@@ -29,11 +29,11 @@ const chatbotService = require('@acpaas-ui-widgets/nodejs-chatbot-service');
 const app = express();
 
 const controller = chatbotService.chatbot.createController({
-  accessToken: <ACCESS_TOKEN> (you can find this in the chatbot interface under 'Instellingen'),
-  chatbot: <CHATBOT> the Id of the chatbot you want to address,
-  chatbotenv: <CHATBOT_ENV> test | production,
-  serviceUrl: <SERVICEURL> endpoint (api-store),
-  apikey: <APIKEY> the apikey from the api-store
+  accessToken: <ACCESS_TOKEN> '(Defined in the chatbot builder under `Instellingen`)',
+  chatbot: <CHATBOT> 'The Id of the chatbot you want to address',
+  chatbotenv: <CHATBOT_ENV> 'Test | production',
+  serviceUrl: <SERVICEURL> 'Endpoint (api-store)',
+  apikey: <APIKEY> 'The apikey from the api-store'
 });
 
 app.post('/api/chatbot', controller);
@@ -49,17 +49,31 @@ import chatbotService from '@acpaas-ui-widgets/nodejs-chatbot';
 const app = express();
 
 const controller = chatbotService.createController({
-  accessToken: <ACCESS_TOKEN> (you can find this in the chatbot interface under 'Instellingen'),
-  chatbot: <CHATBOT> the Id of the chatbot you want to address,
-  chatbotenv: <CHATBOT_ENV> test | production,
-  serviceUrl: <SERVICEURL> endpoint (api-store),
-  apikey: <APIKEY> the apikey from the api-store
+  accessToken: <ACCESS_TOKEN> '(you can find this in the chatbot interface under `Instellingen`)',
+  chatbot: <CHATBOT> 'The Id of the chatbot you want to address',
+  chatbotenv: <CHATBOT_ENV> 'test | production',
+  serviceUrl: <SERVICEURL> 'Endpoint (api-store)',
+  apikey: <APIKEY> 'The apikey from the api-store'
 });
 
 app.post('/api/chatbot', controller);
 app.listen(3000);
 ```
+#### Test configuration:
 
+There's an optional ```fakeResponse``` param that can be set to stub the actual call,
+
+```js
+const controller = chatbotService.createController({
+  accessToken: <ACCESS_TOKEN> '(you can find this in the chatbot interface under `Instellingen`)',
+  chatbot: <CHATBOT> 'The Id of the chatbot you want to address',
+  chatbotenv: <CHATBOT_ENV> 'test | production',
+  serviceUrl: <SERVICEURL> 'Endpoint (api-store)',
+  apikey: <APIKEY> 'The apikey from the api-store',
+  fakeResponse: true
+});
+
+```
 ## Run the demo app
 
 Create a .env file containing:

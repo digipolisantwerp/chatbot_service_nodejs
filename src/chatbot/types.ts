@@ -4,6 +4,7 @@ export interface ServiceConfig {
   chatbotenv: string;
   serviceUrl: string;
   apikey: string;
+  fakeResponse?: boolean;
 }
 
 export interface ChatbotAccess {

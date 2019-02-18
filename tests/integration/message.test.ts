@@ -32,7 +32,7 @@ const mockedMessage = {
 };
 describe('POST /api/chatbot`', () => {
   describe('Test Validation', () => {
-    it('Expect validation error on missing message', async () => {
+    test('Expect validation error on missing message', async () => {
       const { body, status  } = await request(app)
         .post(`/api/chatbot`)
         .send({});
@@ -64,7 +64,7 @@ describe('POST /api/chatbot`', () => {
         ],
       });
     });
-    it('Expect validation error on missing session_id', async () => {
+    test('Expect validation error on missing session_id', async () => {
       const { body, status  } = await request(app)
         .post(`/api/chatbot`)
         .send({ message: 'hello world' });
@@ -98,7 +98,7 @@ describe('POST /api/chatbot`', () => {
     });
   });
   describe('Test Call', () => {
-    it('Expect The server to respond when we send it an message', async () => {
+    test('Expect The server to respond when we send it an message', async () => {
       axios.mockImplementationOnce(() =>
         Promise.resolve({
           data: mockedMessage,
@@ -129,7 +129,7 @@ describe('POST /api/chatbot`', () => {
       expect(status).toEqual(200);
       expect(body).toEqual(mockedMessage);
     });
-    it('Expect The server to only call the message endpoint and not to regenerate a token', async () => {
+    test('Expect The server to only call the message endpoint and not to regenerate a token', async () => {
       jest.resetModules();
       axios.mockImplementationOnce(() =>
         Promise.resolve({

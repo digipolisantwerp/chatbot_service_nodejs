@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { fakeServiceResponse } from '../../src/chatbot/config';
 const lib = require('../../src');
 
 const mockedMessage = { exited_engine:1527664351.212784,
@@ -29,7 +30,7 @@ const mockedMessage = { exited_engine:1527664351.212784,
   chatbotName:'testchatbot',
 };
 describe('ChatService', () => {
-  it('Expect repsonse', async () => {
+  test('Expect repsonse', async () => {
     axios.mockImplementationOnce(() =>
       Promise.resolve({
         data: mockedMessage,
@@ -52,30 +53,51 @@ describe('ChatService', () => {
       expect(response).toEqual(mockedMessage);
     });
   });
-  it('Expect error', async () => {
+  test('Expect error', async () => {
     axios.mockImplementationOnce(() =>
       Promise.reject({
         response: {status: 403} ,
       }),
     );
     const chatService = lib.chatbot.chatService({
+      accessToken: process.env.ACCESSTOKEN,
+      apikey: process.env.APIKEY,
       chatbot: process.env.CHATBOT,
       chatbotenv: process.env.CHATBOT_ENV,
       serviceUrl: process.env.SERVICEURL,
-      accessToken: process.env.ACCESSTOKEN,
-      apikey: process.env.APIKEY
     });
     return chatService({
-      session_id: 'abc',
       message: 'Injectdataintouser',
       metadata: {
         firstname: 'jasper',
       },
+      session_id: 'abc',
     }).catch((e) => {
       expect(e).toEqual({
-        status: 403,
         name: 'ChatBotError',
+        status: 403,
       });
+    });
+  });
+  test('Expect fake response', async () => {
+    delete require.cache[require.resolve('../../src')];
+    const library = require('../../src');
+    const chatService = library.chatbot.chatService({
+      accessToken: process.env.ACCESSTOKEN,
+      apikey: process.env.APIKEY,
+      chatbot: process.env.CHATBOT,
+      chatbotenv: process.env.CHATBOT_ENV,
+      fakeResponse: true,
+      serviceUrl: process.env.SERVICEURL,
+    });
+    return chatService({
+      message: 'Injectdataintouser',
+      metadata: {
+        firstname: 'jasper',
+      },
+      session_id: 'abc',
+    }).then((response) => {
+      expect(response).toEqual(fakeServiceResponse);
     });
   });
 });

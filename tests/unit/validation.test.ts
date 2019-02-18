@@ -21,13 +21,13 @@ const hasError = (obj, key, mergeWithDefault = true) => {
 
 describe('Body validation', () => {
   describe('Message validation', () => {
-    it('should be valid on a string', () => {
+    test('should be valid on a string', () => {
       expect(hasError({ message: 'x' }, 'message')).toBeFalsy();
     });
-    it('should be invalid on no string', () => {
+    test('should be invalid on no string', () => {
       expect(hasError({ message: 1 }, 'message')).toBeTruthy();
     });
-    it('should be invalid if not provided', () => {
+    test('should be invalid if not provided', () => {
       expect(hasError({
         meta: {
           x: '1',
@@ -40,22 +40,22 @@ describe('Body validation', () => {
   });
 
   describe('send validation', () => {
-    it('should be valid on a boolean', () => {
+    test('should be valid on a boolean', () => {
       expect(hasError({ send: true }, 'send')).toBeFalsy();
     });
-    it('should be invalid on no boolean', () => {
+    test('should be invalid on no boolean', () => {
       expect(hasError({ send: 'x' }, 'send')).toBeTruthy();
     });
   });
 
   describe('session_id validation', () => {
-    it('should be valid on a string', () => {
+    test('should be valid on a string', () => {
       expect(hasError({ session_id: 'x' }, 'session_id')).toBeFalsy();
     });
-    it('should be invalid on no string', () => {
+    test('should be invalid on no string', () => {
       expect(hasError({ session_id: 1 }, 'session_id')).toBeTruthy();
     });
-    it('should be invalid if not provided', () => {
+    test('should be invalid if not provided', () => {
       expect(hasError({
         message: 'x',
         meta: {
@@ -68,19 +68,19 @@ describe('Body validation', () => {
   });
 
   describe('type validation', () => {
-    it('should be valid on a string', () => {
+    test('should be valid on a string', () => {
       expect(hasError({ type: 'x' }, 'type')).toBeFalsy();
     });
-    it('should be invalid on no string', () => {
+    test('should be invalid on no string', () => {
       expect(hasError({ type: 1 }, 'type')).toBeTruthy();
     });
   });
 
   describe('meta validation', () => {
-    it('should be valid on a object', () => {
+    test('should be valid on a object', () => {
       expect(hasError({ metadata: { x: 1 } }, 'metadata')).toBeFalsy();
     });
-    it('should be invalid on no object', () => {
+    test('should be invalid on no object', () => {
       expect(hasError({ metadata: true }, 'metadata')).toBeTruthy();
     });
   });

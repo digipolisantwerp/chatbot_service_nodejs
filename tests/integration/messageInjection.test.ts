@@ -68,7 +68,7 @@ const mockedMessage = { exited_engine:1527664351.212784,
 };
 describe('POST /api/chatbot/inject`', () => {
   describe('Test Validation', () => {
-    it('Expect validation error on missing message', async () => {
+    test('Expect validation error on missing message', async () => {
       const { body, status  } = await request(app)
         .post(`/api/chatbot/inject`)
         .send({});
@@ -100,7 +100,7 @@ describe('POST /api/chatbot/inject`', () => {
         ],
       });
     });
-    it('Expect validation error on missing session_id', async () => {
+    test('Expect validation error on missing session_id', async () => {
       const { body, status  } = await request(app)
         .post(`/api/chatbot/inject`)
         .send({ message: 'hello world' });
@@ -132,7 +132,7 @@ describe('POST /api/chatbot/inject`', () => {
         ],
       });
     });
-    it('Expect error on error', async () => {
+    test('Expect error on error', async () => {
       sessionCheck.addSession = jest.fn();
       sessionCheck.addSession.mockImplementationOnce(() => {
         throw new Error('oeps');
@@ -147,7 +147,7 @@ describe('POST /api/chatbot/inject`', () => {
     });
   });
   describe('Test Call', () => {
-    it('Expect The server to respond when we send it an message', async () => {
+    test('Expect The server to respond when we send it an message', async () => {
       sessionCheck.addSession.mockReset();
       axios.mockImplementationOnce(() =>
         Promise.resolve({

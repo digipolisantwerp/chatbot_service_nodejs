@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { fakeServiceResponse } from '../config';
 import { ServiceConfig, ChatbotAccess } from './../types';
 export default class ChatMessager {
   private static instance: ChatMessager;
@@ -7,7 +7,10 @@ export default class ChatMessager {
   private config: ServiceConfig;
   private authentication: Promise<ChatbotAccess>;
   constructor(config: ServiceConfig) {
-    if (ChatMessager.instance && ChatMessager.instance.config.chatbot === config.chatbot) {
+    if (ChatMessager.instance
+      && ChatMessager.instance.config.chatbot === config.chatbot
+      && ChatMessager.instance.config.fakeResponse === config.fakeResponse
+    ) {
       return ChatMessager.instance;
     }
     this.config = config;
@@ -15,6 +18,9 @@ export default class ChatMessager {
   }
 
   public sendMessage(message: string, session: string, metadata?: any) {
+    if (this.config.fakeResponse) {
+      return Promise.resolve(fakeServiceResponse);
+    }
     return new Promise<object>((resolve, reject) => {
       axios({
         data: {

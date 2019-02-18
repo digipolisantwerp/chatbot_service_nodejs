@@ -67,7 +67,7 @@ const mockedMessage = { exited_engine:1527664351.212784,
 };
 describe('POST /api/chatbot/inject`', () => {
   describe('Test Call', () => {
-    it('Expect The server to respond with an error', async () => {
+    test('Expect The server to respond with an error', async () => {
       axios.mockImplementationOnce(() =>
         Promise.resolve({
           data: {
@@ -94,7 +94,7 @@ describe('POST /api/chatbot/inject`', () => {
         });
       expect(status).toEqual(500);
     });
-    it('Expect The server to respond with an error', async () => {
+    test('Expect The server to respond with an error', async () => {
       axios.mockImplementationOnce(() =>
         Promise.reject({
           data: mockedMessageData,

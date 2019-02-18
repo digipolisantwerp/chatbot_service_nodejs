@@ -12,7 +12,7 @@ const mockedError = {
 
 describe('POST /api/chatbot`', () => {
   describe('Test Call', () => {
-    it('Expect The server to respond with a chatbotAutherror if there is a problem with the auth', async () => {
+    test('Expect The server to respond with a chatbotAutherror if there is a problem with the auth', async () => {
       axios.mockRejectedValueOnce(mockedError);
       const { body, status  } = await request(app)
         .post(`/api/chatbot`)
