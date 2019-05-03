@@ -1,9 +1,17 @@
+import { NextFunction, Request, Response } from 'express';
+import * as Express from 'express';
+
+export interface ChatbotRequest extends Request {
+   chatbotResponse?: any;
+}
+
 export interface ServiceConfig {
   accessToken: string;
   chatbot: string;
   chatbotenv: string;
   serviceUrl: string;
   apikey: string;
+  responseHandler?: boolean;
 }
 
 export interface ChatbotAccess {
