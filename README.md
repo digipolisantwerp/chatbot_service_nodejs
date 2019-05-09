@@ -110,7 +110,7 @@ POST: /chats/{botId}/message?access_token={access_token}
 - **metadata:**: Metadata to be passed along, this has to be an object.
 
 ### ResponseHandler
-If the responseHandler is set to false the package will not send the http response. Instaid it will call the next function and put the response on `req.chatbotResponse`.
+If the responseHandler is set to false the package will not send the http response. Instead it will call the next function and put the response on `req.chatbotResponse`.
 This feature can be used if you would like to modify / filter the message before it's sent to the client.
 
 An [example swagger description](swagger.yml) is included.
