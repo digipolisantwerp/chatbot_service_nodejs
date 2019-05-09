@@ -5,6 +5,7 @@ import * as express from 'express';
 import errorHandler from './middleware/error.middle';
 import authenticate from './middleware/checktoken.middle';
 import injectUser from './middleware/injectUser.middle';
+import handleresponse from './middleware/responsehandler.middle';
 import { Request, Response, NextFunction } from 'express';
 
 const app = express();
@@ -33,6 +34,15 @@ app.post('/api/chatbotsecure', authenticate, lib.createController({
   chatbotenv: process.env.CHATBOT_ENV,
   serviceUrl: process.env.SERVICEURL,
 }));
+
+app.post('/api/chatbotresponsehandler', lib.createController({
+  accessToken: process.env.ACCESSTOKEN,
+  apikey: process.env.APIKEY,
+  chatbot: process.env.CHATBOT,
+  chatbotenv: process.env.CHATBOT_ENV,
+  responseHandler: false,
+  serviceUrl: process.env.SERVICEURL,
+}), handleresponse);
 
 app.use(errorHandler);
 

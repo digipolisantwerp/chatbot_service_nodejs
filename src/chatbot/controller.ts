@@ -2,10 +2,10 @@ import * as Joi from 'joi';
 import * as validation from './validation';
 import createService from './service';
 import { NextFunction, Request, Response } from 'express';
-import { ChatbotMessage, ServiceConfig } from './types';
+import { ChatbotMessage, ServiceConfig, ChatbotRequest } from './types';
 
-const createController = (config: ServiceConfig) =>
-  async (req: Request, res: Response, next: NextFunction) => {
+const createController = (config: ServiceConfig): any =>
+  async (req: ChatbotRequest, res: Response, next: NextFunction) => {
     try {
       const result = Joi.attempt(
         req.body,
@@ -13,7 +13,12 @@ const createController = (config: ServiceConfig) =>
       );
       const service = createService(config);
       const returnMessage = await service(req.body);
-      res.json(returnMessage);
+      if (config.responseHandler === false) {
+        req.chatbotResponse = returnMessage;
+        return next();
+      } else {
+        return res.json(returnMessage);
+      }
     } catch (e) {
       next(e);
     }

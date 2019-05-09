@@ -33,6 +33,7 @@ const controller = chatbotService.chatbot.createController({
   chatbot: <CHATBOT> the Id of the chatbot you want to address,
   chatbotenv: <CHATBOT_ENV> test | production,
   serviceUrl: <SERVICEURL> endpoint (api-store),
+  responseHandler: (optional) true(default) | false. The package needs to handle the http response or call 'next()'
   apikey: <APIKEY> the apikey from the api-store
 });
 
@@ -107,6 +108,10 @@ POST: /chats/{botId}/message?access_token={access_token}
 - **type:** message
 - **send:** true
 - **metadata:**: Metadata to be passed along, this has to be an object.
+
+### ResponseHandler
+If the responseHandler is set to false the package will not send the http response. Instaid it will call the next function and put the response on `req.chatbotResponse`.
+This feature can be used if you would like to modify / filter the message before it's sent to the client.
 
 An [example swagger description](swagger.yml) is included.
 
