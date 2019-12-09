@@ -1,7 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-[2.2.3]: https://github.com/digipolisantwerp/chatbot_service_nodejs/tree/v2.2.2
+[2.3.1]: https://github.com/digipolisantwerp/chatbot_service_nodejs/tree/v2.3.1
+## [2.3.1] - 2019-11-09
+- Fix: missing dependency joi
+
+[2.3.0]: https://github.com/digipolisantwerp/chatbot_service_nodejs/tree/v2.3.0
+## [2.3.0] - 2019-05-09
+- Add option to handle response in app instead of in this module
+
+[2.2.3]: https://github.com/digipolisantwerp/chatbot_service_nodejs/tree/v2.2.3
 ## [2.2.3] - 2019-02-11
 - Fix: move dev dependencies to dev
 - First release to npmjs
