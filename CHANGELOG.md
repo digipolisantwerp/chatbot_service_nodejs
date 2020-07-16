@@ -56,6 +56,8 @@ All notable changes to this project will be documented in this file.
 - Initial release.
 
 ## [Unreleased]
+
+-  DependaBot security
 <!--
 "### Added" for new features.
 "### Changed" for changes in existing functionality.
